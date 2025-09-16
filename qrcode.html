@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Welcome to Dream Destinations</title>
+<meta name="description" content="All the info you need for your stay with Dream Destinations 30A." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+--bg:#ffffff;
+--card:#f9fbfb;
+--brand:#2b7a78;
+--mint:#cfeeee;
+--mint-pressed:#bfe2e2;
+--accent:#ffb15e;
+     --muted:#7c8a8a;
+     --ring:#dfeaea;
+     --radius:16px;
+}
+
+    *{box-sizing:border-box}
+html,body{height:100%}
+
+body{
+     margin:0;
+     background:var(--bg);
+     color:#1b1f24;
+     font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+     display:flex;
+     align-items:center;
+     justify-content:center;
+}
+
+.shell{
+     width:100%;
+     max-width:420px;
+     padding:24px 18px 20px;
+}
+
+.card{
+     background:var(--card);
+     border:1px solid var(--ring);
+     border-radius:calc(var(--radius) + 8px);
+     padding:28px 18px 18px;
+     box-shadow:0 6px 24px rgba(0,0,0,.04);
+}
+
+.brand{
+     display:flex;
+     align-items:center;
+     gap:12px;
+     margin-bottom:8px;
+}
+.logo{
+width:70px;
+height:70px;
+border-radius:50%;
+display:flex;
+place-items:center;
+background:#f3f7f7;
+border:1px solid var(--ring);
+overflow:hidden;
+align-items: center;
+justify-content: center;
+overflow: hidden;
+}
+.logo img{
+     width:100%;
+     height:150%;
+      object-fit:contain; /* keep full logo visible */
+     border-radius:50%;
+     
+}
+
+h1{
+font-size:20px;line-height:1.2;margin:0;color:var(--brand);font-weight:700;
+}
+\.sub{
+font-size:12px;color:var(--muted);letter-spacing:.14em;text-transform:uppercase;margin:10px 0 18px;
+}
+
+    .stack{display:grid;gap:12px;margin:10px 0 18px}
+    .btn{
+      display:flex;align-items:center;justify-content:center;
+      text-decoration:none;
+      background:var(--mint);
+      border:1px solid var(--ring);
+      color:#1d2a2a;
+      padding:14px 16px;
+      border-radius:12px;
+      font-weight:600;
+      letter-spacing:.02em;
+      box-shadow:0 1px 0 rgba(0,0,0,.02) inset;
+      transition:transform .04s ease, background .12s ease;
+    }
+    .btn:active{transform:translateY(1px);background:var(--mint-pressed)}
+    .btn:focus-visible{outline:3px solid #9ee3e3;outline-offset:2px}
+
+    .chips{display:flex;gap:10px;justify-content:center;margin-top:8px}
+    .chip{
+      width:40px;height:40px;border-radius:50%;
+      display:grid;place-items:center;
+      border:1px solid var(--ring);
+      background:#fff;
+    }
+    .chip svg{width:20px;height:20px}
+
+    .legal{margin-top:16px;text-align:center;color:var(--muted);font-size:11px}
+
+    @supports (padding: max(0px)){ 
+      .shell{ padding-bottom:max(20px, env(safe-area-inset-bottom)); }
+    }
+
+    @media (prefers-color-scheme: dark){
+      :root{ --bg:#0e1111; --card:#0f1515; --brand:#d9f4f2; --mint:#123; --mint-pressed:#0f2a2a; --muted:#9eb0b0; --ring:#1d2a2a; }
+      .btn{ background:#153637; color:#e6f2f2; }
+      .chip{ background:#101616; }
+      .card{ box-shadow:none; }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell" role="main">
+    <section class="card" aria-label="Welcome">
+
+
+      <div class="brand">
+        <div class="logo">
+          <img src="dream png-01 (1).png" alt="Logo">
+        </div>
+        <div>
+          <h1>Welcome to Dream!</h1>
+          <div style="font-size:12px;color:#8aa;">Luxury between beach &amp; coast</div>
+     </div>
+     </div>
+
+     <p class="sub">All the info you need for your stay</p>
+
+     <nav class="stack" aria-label="Primary">
+     <a class="btn" href="checkin.html">CHECK IN/OUT</a>
+     <a class="btn" href="#house-rules">HOUSE RULES</a>
+     <a class="btn" href="#parking">PARKING</a>
+     <a class="btn" href="#package">PACKAGE DELIVERY INFO</a>
+     <a class="btn" href="#beach">BEACH ACCESSES</a>
+     <a class="btn" href="#hours">OFFICE HOURS</a>
+     </nav>
+
+     <div class="chips" aria-label="Contact options">
+     <a class="chip" href="mailto:info@dreamdestinations30a.com" aria-label="Email us">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M3.6 6h16.8a1.6 1.6 0 0 1 1.6 1.6v8.8a1.6 1.6 0 0 1-1.6 1.6H3.6A1.6 1.6 0 0 1 2 16.4V7.6A1.6 1.6 0 0 1 3.6 6Z" stroke="#ffb15e" stroke-width="1.6"/>
+          <path d="m4 8 8 6 8-6" stroke="#ffb15e" stroke-width="1.6"/>
+          </svg>
+     </a>
+     <a class="chip" href="tel:+18555550123" aria-label="Call us">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M6 3c.7 0 1.3.5 1.5 1.1l.7 2a2 2 0 0 1-.5 2l-1 1c1.3 2.5 3.3 4.6 5.8 6l1-1a2 2 0 0 1 2-.5l2 .7A1.6 1.6 0 0 1 18 15v2.4c0 .9-.7 1.6-1.6 1.6A14.4 14.4 0 0 1 2 4.6C2 3.7 2.7 3 3.6 3H6Z" stroke="#ffb15e" stroke-width="1.6"/>
+          </svg>
+     </a>
+     </div>
+
+     <div class="legal">© Dream Destinations 30A. All rights reserved.</div>
+</section>
+</main>
+</body>
+</html>
