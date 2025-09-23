@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>House Rules • Dream Destinations</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f3f6f6;
+  --card:#ffffff;
+  --ink:#1b1f24;
+  --muted:#66757f;
+  --ring:#e7eeee;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family: Inter, sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  display:flex;
+  justify-content:center;
+  padding:22px;
+}
+.card{
+  width:100%;
+  max-width:420px;
+  background:var(--card);
+  border:1px solid var(--ring);
+  border-radius:18px;
+  box-shadow:0 6px 16px rgba(0,0,0,.05);
+  overflow:hidden;
+}
+.header{padding:18px; text-align:center;}
+.brand img{width:50px; height:50px;}
+.brand h1{margin:8px 0 2px; font-size:20px; font-weight:700;}
+.subtag{margin:0; font-size:13px; color:var(--muted);}
+.hero{margin:12px auto; width:88%; border-radius:12px; overflow:hidden;}
+.hero img{display:block; width:100%; height:130px; object-fit:cover;}
+.section{padding:0 22px 14px;}
+.section h2{
+  text-align:center;
+  font-size:14px;
+  letter-spacing:.12em;
+  margin:12px 0;
+  font-weight:700;
+}
+.section h3{margin:14px 0 6px; font-size:13px; font-weight:700;}
+.section ul{margin:6px 0 0 20px; padding:0; font-size:14px;}
+.section li{margin:6px 0;}
+.footer{display:flex; gap:10px; padding:14px 22px 16px;}
+.btn{
+  flex:1;
+  padding:10px;
+  border-radius:8px;
+  border:1px solid var(--ring);
+  background:#e3f1ec;  /* same mint background */
+  font-weight:600;
+  font-size:14px;
+  cursor:pointer;
+}
+.legal{text-align:center; padding:0 0 14px; color:#7a8a8a; font-size:12px;}
+</style>
+</head>
+<body>
+
+<main class="card">
+  <header class="header">
+    <div class="brand">
+      <img src="logo.png" alt="Dream logo">
+      <h1>Welcome to Dream!</h1>
+      <p class="subtag">Luxury Meeting Place</p>
+    </div>
+    <div class="hero"><img src="beach.jpg" alt="Beach"></div>
+  </header>
+
+  <section class="section">
+    <h2>HOUSE RULES</h2>
+
+    <h3>No Smoking</h3>
+    <ul>
+      <li>Smoking is not allowed inside the property.</li>
+      <li>Use designated outdoor areas only.</li>
+    </ul>
+
+    <h3>No Pets</h3>
+    <ul>
+      <li>Pets are not allowed unless pre-approved in writing.</li>
+    </ul>
+
+    <h3>Quiet Hours</h3>
+    <ul>
+      <li>Please respect quiet hours from 10:00 PM – 8:00 AM.</li>
+    </ul>
+
+    <h3>Guest Policy</h3>
+    <ul>
+      <li>Only registered guests are permitted overnight.</li>
+    </ul>
+
+    <h3>Respect Property</h3>
+    <ul>
+      <li>No parties or large gatherings.</li>
+      <li>Do not move furniture without approval.</li>
+    </ul>
+  </section>
+
+  <div class="footer">
+    <button class="btn" onclick="location.href='index.html'">HOME</button>
+    <button class="btn">NEXT</button>
+  </div>
+  <p class="legal">© Dream Destinations 30A. All rights reserved.</p>
+</main>
+
+</body>
+</html>
