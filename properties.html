@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Property Info</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      background-color: #f7f7f7;
+    }
+    .card {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      max-width: 600px;
+      margin: auto;
+    }
+    h1 { color: #333; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1 id="propertyName"></h1>
+    <p>Check-in: 4:00 PM | Check-out: 10:00 AM</p>
+    <p>Please contact the office for any time adjustments or special requests.</p>
+  </div>
+
+  <script>
+    // Read property name from URL
+    const params = new URLSearchParams(window.location.search);
+    const propertyName = params.get("name");
+
+    // Display property name (or default text)
+    const title = document.getElementById("propertyName");
+    if (propertyName) {
+      title.textContent = propertyName.replace(/([A-Z])/g, ' $1').trim(); // add spaces if needed
+    } else {
+      title.textContent = "Property Name Not Found";
+    }
+  </script>
+</body>
+</html>

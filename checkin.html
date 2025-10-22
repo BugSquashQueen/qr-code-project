@@ -11,6 +11,23 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
+
+.btn {
+  flex: 12;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid var(--ring);
+  background: #e3f1ec;     /* mint background */
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+}
+.footer {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-start; /* align left */
+  padding: 14px 22px 16px;
+}
   body {
     margin: 0;
     font-family: Inter, sans-serif;
@@ -56,7 +73,7 @@
 .hero {
 width: 100%;
 height: 140px;
-background: url("pexels-tombrand-1630037.jpg") center/cover no-repeat;
+
 border-radius: 20px;
 margin-bottom: 16px;
 }
@@ -118,30 +135,35 @@ color: #2b7a78;
     <div class="content">
       <h2>CHECK IN/OUT</h2>
 
-      <h3>Check-In / Check-Out Information</h3>
-      <p><b>Property Name / Unit:</b> __________</p>
-      <p><b>Address:</b> __________</p>
-      <p><b>Contact Number:</b> __________</p>
+    
+      
 
       <h3>Check-In Details</h3>
       <ul>
-        <li>Check-In Time: 4:00 PM</li>
-        <li>Early Check-In available upon request (subject to availability & fees)</li>
+        <li>Check-In Time: 4:00 PM <i>(Please contact with office for any updates.)</i> </li>
+        <li>Check-Out Time: 10:00 AM <i>(Please contact with office for any updates.)</i> </li>
+        <br>
+        <hr>
         <li>Instructions:
           <ul>
-            <li>Key pickup / Smart lock code: __________</li>
-            <li>Parking details: __________</li>
-            <li>Wi-Fi network & password: __________</li>
+            <li>You will find the check-in details in the check-in instructions we send you.</li>
+            <li>You may also use the side parks for additional parking. Please note that these spaces are available on a first-come, first-served basis.
+            </li>
+            <li>Golf cart key locates on the kitchen counter.</li>
+            <li>Pool cart locates on the kitchen counter.</li>
+            <li></li>
           </ul>
         </li>
       </ul>
-
+<br>
+<hr>
       <h3>Check-Out Details</h3>
       <ul>
         <li>Check-Out Time: 10:00 AM</li>
         <li>Late Check-Out: Please request at least 24 hours in advance</li>
       </ul>
-
+<br>
+<hr>
       <h3>Before You Leave</h3>
       <ul>
         <li>Wash used dishes / load dishwasher</li>
@@ -151,9 +173,9 @@ color: #2b7a78;
       </ul>
     </div>
 
-    <div class="pager">
-      <a href="index.html">HOME</a>
-      <a href="house-rules.html">NEXT</a>
+    <div class="footer">
+      <button class="btn" onclick="location.href='index.html'">HOME</button>
+      <button class="btn" onclick="location.href='golfcart-rules.html'">NEXT</button>
     </div>
 
     <div class="legal">© Dream Destinations 30A. All rights reserved.</div>

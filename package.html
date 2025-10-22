@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Package Delivery • Dream Destinations</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f3f6f6;
+  --card:#ffffff;
+  --ink:#1b1f24;
+  --muted:#66757f;
+  --ring:#e7eeee;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family: Inter, sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  display:flex;
+  justify-content:center;
+  padding:22px;
+}
+.card{
+  width:100%;
+  max-width:420px;
+  background:var(--card);
+  border:1px solid var(--ring);
+  border-radius:18px;
+  box-shadow:0 6px 16px rgba(0,0,0,.05);
+  overflow:hidden;
+}
+.header{padding:18px; text-align:center;}
+.brand img{width:50px; height:50px;}
+.brand h1{margin:8px 0 2px; font-size:20px; font-weight:700;}
+.subtag{margin:0; font-size:13px; color:var(--muted);}
+.hero{margin:12px auto; width:88%; border-radius:12px; overflow:hidden;}
+.hero img{display:block; width:100%; height:130px; object-fit:cover;}
+.section{padding:0 22px 14px;}
+.section h2{
+  text-align:center;
+  font-size:14px;
+  letter-spacing:.12em;
+  margin:12px 0;
+  font-weight:700;
+}
+.section h3{margin:14px 0 6px; font-size:13px; font-weight:700;}
+.section ul{margin:6px 0 0 20px; padding:0; font-size:14px;}
+.section li{margin:6px 0;}
+.footer{
+  display:flex;
+  gap:10px;
+  justify-content:flex-start; /* left aligned buttons */
+  padding:14px 22px 16px;
+}
+.btn{
+  padding:10px 18px;
+  border-radius:8px;
+  border:1px solid var(--ring);
+  background:#e3f1ec;
+  font-weight:600;
+  font-size:14px;
+  cursor:pointer;
+}
+.legal{text-align:center; padding:0 0 14px; color:#7a8a8a; font-size:12px;}
+</style>
+</head>
+<body>
+
+<main class="card">
+  <header class="header">
+    <div class="brand">
+      <img src="logo.png" alt="Dream logo">
+      <h1>Welcome to Dream!</h1>
+      <p class="subtag">Luxury Meeting Place</p>
+    </div>
+    <div class="hero"><img src="delivery.jpg" alt="Package Delivery"></div>
+  </header>
+
+  <section class="section">
+    <h2>PACKAGE DELIVERY</h2>
+
+    <h3>Accepted Deliveries</h3>
+    <ul>
+      <li>Packages can only be delivered to the front desk during office hours.</li>
+      <li>Guests must sign for all deliveries.</li>
+    </ul>
+
+    <h3>Delivery Hours</h3>
+    <ul>
+      <li>Deliveries are accepted between 9:00 AM – 5:00 PM, Monday–Saturday.</li>
+      <li>No deliveries are accepted on Sundays or holidays.</li>
+    </ul>
+
+<h3>Package Pickup</h3>
+<ul>
+     <li>Guests must present ID or confirmation to pick up packages.</li>
+     <li>Please collect packages within 24 hours of arrival.</li>
+</ul>
+
+<h3>Restrictions</h3>
+<ul>
+     <li>Oversized or heavy items may not be accepted.</li>
+     <li>Perishable goods are not guaranteed to be stored properly.</li>
+</ul>
+</section>
+
+<div class="footer">
+<button class="btn" onclick="location.href='index.html'">HOME</button>
+<button class="btn" onclick="location.href='beach-accesses.html'">NEXT</button>
+</div>
+<p class="legal">© Dream Destinations 30A. All rights reserved.</p>
+</main>
+
+</body>
+</html>

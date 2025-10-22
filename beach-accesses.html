@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Beach Access • Dream Destinations</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f3f6f6;
+  --card:#ffffff;
+  --ink:#1b1f24;
+  --muted:#66757f;
+  --ring:#e7eeee;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family: Inter, sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  display:flex;
+  justify-content:center;
+  padding:22px;
+}
+.card{
+  width:100%;
+  max-width:420px;
+  background:var(--card);
+  border:1px solid var(--ring);
+  border-radius:18px;
+  box-shadow:0 6px 16px rgba(0,0,0,.05);
+  overflow:hidden;
+}
+.header{padding:18px; text-align:center;}
+.brand img{width:50px; height:50px;}
+.brand h1{margin:8px 0 2px; font-size:20px; font-weight:700;}
+.subtag{margin:0; font-size:13px; color:var(--muted);}
+.hero{margin:12px auto; width:88%; border-radius:12px; overflow:hidden;}
+.hero img{display:block; width:100%; height:130px; object-fit:cover;}
+.section{padding:0 22px 14px;}
+.section h2{
+  text-align:center;
+  font-size:14px;
+  letter-spacing:.12em;
+  margin:12px 0;
+  font-weight:700;
+}
+.section h3{margin:14px 0 6px; font-size:13px; font-weight:700;}
+.section ul{margin:6px 0 0 20px; padding:0; font-size:14px;}
+.section li{margin:6px 0;}
+.footer{display:flex; gap:10px; padding:14px 22px 16px;}
+.btn{
+  flex:1;
+  padding:10px;
+  border-radius:8px;
+  border:1px solid var(--ring);
+  background:#e3f1ec;
+  font-weight:600;
+  font-size:14px;
+  cursor:pointer;
+}
+.legal{text-align:center; padding:0 0 14px; color:#7a8a8a; font-size:12px;}
+.external-link{
+  background:#f0faf9;
+  border-left:4px solid #c4e3dc;
+  padding:10px;
+  border-radius:8px;
+  font-size:13px;
+  margin-top:12px;
+}
+.external-link a{
+  color:#1b6f63;
+  font-weight:600;
+  text-decoration:none;
+}
+.external-link a:hover{text-decoration:underline;}
+</style>
+</head>
+<body>
+
+<main class="card">
+  <header class="header">
+    <div class="brand">
+      <img src="logo.png" alt="Dream logo">
+      <h1>Beach Access Information</h1>
+      <p class="subtag">Dream Destinations 30A</p>
+    </div>
+    <div class="hero"><img src="beach.jpg" alt="Beach Access"></div>
+  </header>
+
+  <section class="section">
+    <h2>BEACH ACCESS INFO</h2>
+
+    <h3>Main Access Points</h3>
+    <ul>
+      <li><strong>Main Beach Access:</strong> 1777 E County Hwy 30A</li>
+      <li><strong>Camp WaterColor:</strong> 205 Spartina Circle</li>
+    </ul>
+
+    <h3>Access Hours</h3>
+    <ul>
+      <li>Open daily from 9:00 AM – Sunset.</li>
+      <li>Guests must wear wristbands inside all WaterColor amenity areas.</li>
+    </ul>
+
+    <h3>Beach Club Access</h3>
+    <ul>
+      <li>Available for registered WaterColor guests only.</li>
+      <li>Wristbands must be visible upon entry and during your visit.</li>
+    </ul>
+
+    <h3>Important Notes</h3>
+    <ul>
+      <li>Please follow all posted lifeguard and safety signs.</li>
+      <li>Glass containers and pets are not permitted on the beach.</li>
+    </ul>
+
+    <div class="external-link">
+      🌐 For additional public beach and bay access points, visit  
+      <a href="https://www.visitsouthwalton.com/beach-bay-access-locations/" target="_blank">
+        Visit South Walton Beach & Bay Access Locations
+      </a>.
+    </div>
+  </section>
+
+  <div class="footer">
+    <button class="btn" onclick="location.href='index.html'">HOME</button>
+    <button class="btn" onclick="location.href='office-hours.html'">NEXT</button>
+  </div>
+
+  <p class="legal">© Dream Destinations 30A. All rights reserved.</p>
+</main>
+
+</body>
+</html>

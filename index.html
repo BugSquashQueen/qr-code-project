@@ -71,7 +71,7 @@ overflow: hidden;
 .logo img{
      width:100%;
      height:150%;
-      object-fit:contain; /* keep full logo visible */
+     object-fit:contain;
      border-radius:50%;
      
 }
@@ -113,7 +113,7 @@ font-size:12px;color:var(--muted);letter-spacing:.14em;text-transform:uppercase;
 
 @supports (padding: max(0px)){ 
      .shell{ padding-bottom:max(20px, env(safe-area-inset-bottom)); }
-    }
+}
 
     @media (prefers-color-scheme: dark){
       :root{ --bg:#0e1111; --card:#0f1515; --brand:#d9f4f2; --mint:#123; --mint-pressed:#0f2a2a; --muted:#9eb0b0; --ring:#1d2a2a; }
