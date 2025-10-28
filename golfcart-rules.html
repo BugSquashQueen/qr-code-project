@@ -3,117 +3,220 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Golf Cart Rules • Dream Destinations</title>
+<title>Golf Cart Rules | Dream Destinations</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
 <style>
 :root{
-  --bg:#f3f6f6;
-  --card:#ffffff;
-  --ink:#1b1f24;
-  --muted:#66757f;
-  --ring:#e7eeee;
-  --btn-bg:#e3f1ec;
-  --btn-border:#d8e7e1;
-  --btn-text:#1f2c2c;
+  --mint: #cfeeee;
+  --mint-strong: #2b7a78;
+  --ring: #dfeaea;
+  --page-bg: #f7f2eb;
+  --glass: rgba(255,255,255,.66);
+  --radius: 20px;
+  --shadow: 0 10px 26px rgba(0,0,0,.12);
 }
-*{box-sizing:border-box}
-html,body{height:100%}
-body{
-  margin:0;
-  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  background:var(--bg);
-  color:var(--ink);
-  display:grid;
-  place-items:center;
-  padding:22px;
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  background: url('images/beach-bg.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #1d2a2a;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  min-height: 100vh;
 }
-.card{
-  width:100%;
-  max-width:420px;
-  background:var(--card);
-  border:1px solid var(--ring);
-  border-radius:18px;
-  box-shadow:0 6px 16px rgba(0,0,0,.05);
-  overflow:hidden;
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(2px);
+  z-index: -1;
 }
-.header{padding:18px; text-align:center;}
-.brand img{width:50px;height:50px;object-fit:contain}
-.brand h1{margin:8px 0 2px;font-size:20px;font-weight:700}
-.subtag{margin:0;font-size:13px;color:var(--muted)}
-.hero{margin:12px auto; width:88%; border-radius:12px; overflow:hidden}
-.hero img{display:block; width:100%; height:130px; object-fit:cover}
-.section{padding:0 22px 14px}
-.section h2{
-  text-align:center;
-  font-size:14px;
-  letter-spacing:.12em;
-  margin:12px 0 14px;
-  font-weight:700;
-  color:#334042;
+
+.phone {
+  max-width: 420px;
+  width: 100%;
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: 0 6px 24px rgba(0,0,0,.08);
+  background: rgba(255,255,255,0.85);
+  position: relative;
+  backdrop-filter: blur(6px);
 }
-.subhead{margin:14px 0 6px; font-size:13px; font-weight:700; color:#2a3739}
-ul.points{margin:6px 0 0 20px; padding:0; font-size:14px; line-height:1.45}
-ul.points li{margin:6px 0}
-.footer{display:flex; gap:10px; padding:14px 22px 16px}
-.btn{
-  flex:1;
-  padding:10px;
-  border-radius:8px;
-  border:1px solid var(--btn-border);
-  background:var(--btn-bg);
-  color:var(--btn-text);
-  font-weight:700;
-  font-size:13px;
-  letter-spacing:.02em;
-  cursor:pointer;
+
+/* Header */
+header { text-align: center; padding: 16px; }
+.logo { width: 60px; height: 60px; border-radius: 50%; overflow: hidden; margin: 0 auto 8px; }
+.logo img { width: 100%; height: 100%; object-fit: contain; }
+header h1 { font-size: 18px; margin: 0; color: var(--mint-strong); }
+header .sub { font-size: 12px; color: #7c8a8a; margin-top: 4px; }
+
+/* Hero */
+.hero {
+  position: relative;
+  height: 38vh;
+  min-height: 180px;
+  max-height: 340px;
+  overflow: hidden;
 }
-.btn:active{transform:translateY(1px)}
-.legal{text-align:center; padding:0 0 14px; color:#7a8a8a; font-size:12px}
+.hero img.hero-bg {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transform: scale(1.08);
+}
+.hero .overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,.35) 0%, rgba(0,0,0,.15) 45%, rgba(0,0,0,0) 100%);
+}
+.hero .hero-text {
+  position: absolute; inset: 0;
+  display: grid; place-items: end start;
+  padding: 16px;
+  color: #fff;
+}
+.hero .hero-text h2 {
+  margin: 0 0 6px 0;
+  font-size: clamp(18px, 4.5vw, 24px);
+  font-weight: 700;
+}
+
+/* Content */
+.content {
+  margin-top: -60px;
+  padding: 0 16px 20px;
+}
+.card {
+  background: var(--glass);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 18px 16px;
+  max-width: 860px;
+  margin: 0 auto 16px;
+}
+.section-title {
+  font-size: 16px;
+  margin: 0 0 10px;
+  text-align: center;
+  color: var(--mint-strong);
+}
+.subhead {
+  margin: 14px 0 6px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #2a3739;
+}
+ul.points { margin: 6px 0 0 20px; padding: 0; font-size: 14px; line-height: 1.5; }
+ul.points li { margin: 6px 0; }
+
+/* Buttons */
+.footer {
+  display: flex; gap: 10px;
+  justify-content: flex-start;
+  padding: 14px 22px 16px;
+}
+.btn {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  background: linear-gradient(135deg, #2b7a78, #3ba99c);
+  color: #fff;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+.btn:hover {
+  background: linear-gradient(135deg, #226d6b, #2b7a78);
+  transform: translateY(-2px);
+}
+
+.legal {
+  text-align: center;
+  font-size: 11px;
+  color: #7c8a8a;
+  padding-bottom: 12px;
+}
+
+/* animations */
+.card { opacity: 0; transform: translateY(14px); transition: .45s ease; }
+.card.in-view { opacity: 1; transform: translateY(0); }
 </style>
 </head>
+
 <body>
-
-<main class="card">
-  <header class="header">
-    <div class="brand">
-      <img src="logo.png" alt="Dream logo">
+  <div class="phone">
+    <header>
+      <div class="logo"><img src="images/dream-logo.png" alt="Dream Logo"></div>
       <h1>Welcome to Dream!</h1>
-      <p class="subtag">Luxury Meeting Place</p>
+      <div class="sub">Luxury Meeting Place</div>
+    </header>
+
+    <div class="hero">
+      <img class="hero-bg" src="images/golfcart-hero.jpg" alt="Golf Carts">
+      <div class="overlay"></div>
+      <div class="hero-text">
+        <div><h2>Golf Cart Rules</h2></div>
+      </div>
     </div>
-    <div class="hero"><img src="beach.jpg" alt="Beach"></div>
-  </header>
 
-  <section class="section">
-    <h2>GOLF CART RULES</h2>
+    <div class="content">
+      <section class="card">
+        <h2 class="section-title">USE & ELIGIBILITY</h2>
+        <ul class="points">
+          <li>Driver must be <strong>25+</strong> with a valid driver’s license.</li>
+          <li>Seatbelts required where equipped; max passengers = number of seats.</li>
+          <li>No driving under the influence of alcohol or drugs.</li>
+        </ul>
+      </section>
 
-    <p class="subhead">USE & ELIGIBILITY</p>
-    <ul class="points">
-      <li>Driver must be <strong>25+</strong> with a valid driver’s license.</li>
-      <li>Seatbelts required where equipped; max passengers = number of seats.</li>
-      <li>No driving under the influence of alcohol or drugs.</li>
-    </ul>
+      <section class="card">
+        <h2 class="section-title">WHERE YOU MAY DRIVE</h2>
+        <ul class="points">
+          <li>Community roads only where carts are permitted; <strong>no highways</strong>.</li>
+          <li>Observe posted speed limits and local ordinances.</li>
+          <li>Park only in designated areas; never on sidewalks or grass.</li>
+        </ul>
+      </section>
 
-    <p class="subhead">WHERE YOU MAY DRIVE</p>
-    <ul class="points">
-      <li>Community roads only where carts are permitted; <strong>no highways</strong>.</li>
-      <li>Observe posted speed limits and local ordinances.</li>
-      <li>Park only in designated areas; never on sidewalks or grass.</li>
-    </ul>
+      <section class="card">
+        <h2 class="section-title">CARE & CHARGING</h2>
+        <ul class="points">
+          <li>Charge overnight at the assigned outlet; return cord to holder.</li>
+          <li>Do not drive through standing water or on the beach.</li>
+          <li>Report damage immediately; renter is responsible for violations/fees.</li>
+        </ul>
+      </section>
+    </div>
 
-    <p class="subhead">CARE & CHARGING</p>
-    <ul class="points">
-      <li>Charge overnight at the assigned outlet; return cord to holder.</li>
-      <li>Do not drive through standing water or on the beach.</li>
-      <li>Report damage immediately; renter is responsible for violations/fees.</li>
-    </ul>
-  </section>
-
-  <div class="footer">
-    <button class="btn" onclick="location.href='index.html'">HOME</button>
-    <button class="btn" onclick="location.href='parking.html'">NEXT</button>
+    <div class="footer">
+      <button class="btn" onclick="location.href='index.html'">HOME</button>
+      <button class="btn" onclick="location.href='parking.html'">NEXT</button>
+    </div>
+    <div class="legal">© Dream Destinations 30A. All rights reserved.</div>
   </div>
-  <p class="legal">© Dream Destinations 30A. All rights reserved.</p>
-</main>
 
+<script>
+  const bg = document.querySelector('.hero-bg');
+  const heroText = document.querySelector('.hero-text');
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    bg.style.transform = `translateY(${y * 0.2}px) scale(1.08)`;
+    heroText.style.transform = `translateY(${y * 0.08}px)`;
+  });
+
+  const io = new IntersectionObserver((entries)=> {
+    entries.forEach(e => e.target.classList.toggle('in-view', e.isIntersecting));
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.card').forEach(el => io.observe(el));
+</script>
 </body>
 </html>

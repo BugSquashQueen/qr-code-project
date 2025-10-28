@@ -137,9 +137,14 @@ ul { margin: 0; padding-left: 18px; font-size: 14px; }
   padding: 14px 22px 16px;
 }
 .btn {
-  flex: 12; padding: 10px; border-radius: 8px;
+  flex: 12;
+  padding: 10px;
+  border-radius: 8px;
   border: 1px solid var(--ring);
-  background: #e3f1ec; font-weight: 600; font-size: 14px; cursor: pointer;
+  background: #e3f1ec;     /* current mint color */
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
 }
 .legal { text-align: center; font-size: 11px; color: #7c8a8a; padding-bottom: 12px; }
 
@@ -225,7 +230,7 @@ ul { margin: 0; padding-left: 18px; font-size: 14px; }
     heroText.style.transform = `translateY(${y * 0.08}px)`;
   });
 
-  // Fade-in cards when visible
+  // Fade in cards when visible
   const io = new IntersectionObserver((entries)=> {
     entries.forEach(e => e.target.classList.toggle('in-view', e.isIntersecting));
   }, { threshold: 0.15 });
