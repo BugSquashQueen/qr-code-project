@@ -31,14 +31,16 @@ body {
   min-height: 100vh;
   overflow-y: auto;
 }
+
 body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background: rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(2px);
+  background: rgba(247, 242, 235, 0.75); /* <— THIS IS THE beige overlay */
+  backdrop-filter: blur(3px);
   z-index: -1;
 }
+
 
 .phone {
   max-width: 420px;
