@@ -25,18 +25,25 @@
 body {
   margin: 0;
   font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-
-  /* add background image here 👇 */
   background: url('images/beach-bg.jpg') no-repeat center center fixed;
   background-size: cover;
-
-  /* fallback color and layout */
-  background-color: #f7f2eb;
+  color: #1d2a2a;
   display: flex;
   justify-content: center;
   padding: 20px;
-  color: #1d2a2a;
+  min-height: 100vh;
+  overflow-y: auto;
 }
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.5); /* soft beige overlay */
+  backdrop-filter: blur(2px);
+  z-index: -1;
+}
+
 
 
 .phone {
