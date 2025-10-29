@@ -3,116 +3,222 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Package Delivery • Dream Destinations</title>
+<title>Package Delivery | Dream Destinations</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
 <style>
 :root{
-  --bg:#f3f6f6;
-  --card:#ffffff;
-  --ink:#1b1f24;
-  --muted:#66757f;
-  --ring:#e7eeee;
+  --mint: #cfeeee;
+  --mint-strong: #2b7a78;
+  --ring: #dfeaea;
+  --page-bg: #f7f2eb;
+  --glass: rgba(255,255,255,.66);
+  --radius: 20px;
+  --shadow: 0 10px 26px rgba(0,0,0,.12);
 }
-*{box-sizing:border-box}
-body{
-  margin:0;
-  font-family: Inter, sans-serif;
-  background:var(--bg);
-  color:var(--ink);
-  display:flex;
-  justify-content:center;
-  padding:22px;
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  background: url('images/beach-bg.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #1d2a2a;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  min-height: 100vh;
+  overflow-y: auto;
 }
-.card{
-  width:100%;
-  max-width:420px;
-  background:var(--card);
-  border:1px solid var(--ring);
-  border-radius:18px;
-  box-shadow:0 6px 16px rgba(0,0,0,.05);
-  overflow:hidden;
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(247, 242, 235, 0.75); /* Beige overlay */
+  backdrop-filter: blur(3px);
+  z-index: -1;
 }
-.header{padding:18px; text-align:center;}
-.brand img{width:50px; height:50px;}
-.brand h1{margin:8px 0 2px; font-size:20px; font-weight:700;}
-.subtag{margin:0; font-size:13px; color:var(--muted);}
-.hero{margin:12px auto; width:88%; border-radius:12px; overflow:hidden;}
-.hero img{display:block; width:100%; height:130px; object-fit:cover;}
-.section{padding:0 22px 14px;}
-.section h2{
-  text-align:center;
-  font-size:14px;
-  letter-spacing:.12em;
-  margin:12px 0;
-  font-weight:700;
+
+.phone {
+  max-width: 420px;
+  width: 100%;
+  border-radius: 30px;
+  overflow: visible;
+  box-shadow: 0 6px 24px rgba(0,0,0,.08);
+  background: rgba(255,255,255,0.85);
+  position: relative;
+  backdrop-filter: blur(6px);
 }
-.section h3{margin:14px 0 6px; font-size:13px; font-weight:700;}
-.section ul{margin:6px 0 0 20px; padding:0; font-size:14px;}
-.section li{margin:6px 0;}
-.footer{
-  display:flex;
-  gap:10px;
-  justify-content:flex-start; /* left aligned buttons */
-  padding:14px 22px 16px;
+
+/* Header */
+header { text-align: center; padding: 16px; }
+.logo { width: 60px; height: 60px; border-radius: 50%; overflow: hidden; margin: 0 auto 8px; }
+.logo img { width: 100%; height: 100%; object-fit: contain; }
+header h1 { font-size: 18px; margin: 0; color: var(--mint-strong); }
+header .sub { font-size: 12px; color: #7c8a8a; margin-top: 4px; }
+
+/* Hero */
+.hero {
+  position: relative;
+  height: 38vh;
+  min-height: 180px;
+  max-height: 340px;
+  overflow: hidden;
 }
-.btn{
-  padding:10px 18px;
-  border-radius:8px;
-  border:1px solid var(--ring);
-  background:#e3f1ec;
-  font-weight:600;
-  font-size:14px;
-  cursor:pointer;
+.hero img.hero-bg {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transform: scale(1.08);
 }
-.legal{text-align:center; padding:0 0 14px; color:#7a8a8a; font-size:12px;}
+.hero .overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,.35) 0%, rgba(0,0,0,.15) 45%, rgba(0,0,0,0) 100%);
+}
+.hero .hero-text {
+  position: absolute; inset: 0;
+  display: grid; place-items: end start;
+  padding: 16px;
+  color: #fff;
+}
+.hero .hero-text h2 {
+  margin: 0 0 6px 0;
+  font-size: clamp(18px, 4.5vw, 24px);
+  font-weight: 700;
+}
+
+/* Content */
+.content {
+  margin-top: -60px;
+  padding: 0 16px 20px;
+}
+.card {
+  background: var(--glass);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 18px 16px;
+  max-width: 860px;
+  margin: 0 auto 16px;
+}
+.section-title {
+  font-size: 16px;
+  margin: 0 0 10px;
+  text-align: center;
+  color: var(--mint-strong);
+}
+h3 {
+  margin: 14px 0 6px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #2a3739;
+}
+ul { margin: 6px 0 0 20px; padding: 0; font-size: 14px; line-height: 1.5; }
+ul li { margin: 6px 0; }
+
+/* Buttons */
+.footer {
+  display: flex; gap: 10px;
+  justify-content: flex-start;
+  padding: 14px 22px 16px;
+}
+.btn {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  background: linear-gradient(135deg, #2b7a78, #3ba99c);
+  color: #fff;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  box-shadow: 0 3px 8px rgba(43, 122, 120, 0.3);
+}
+.btn:hover {
+  background: linear-gradient(135deg, #226d6b, #2b7a78);
+  transform: translateY(-2px);
+}
+
+.legal {
+  text-align: center;
+  font-size: 11px;
+  color: #7c8a8a;
+  padding-bottom: 12px;
+}
+
+/* animations */
+.card { opacity: 0; transform: translateY(14px); transition: .45s ease; }
+.card.in-view { opacity: 1; transform: translateY(0); }
 </style>
 </head>
+
 <body>
-
-<main class="card">
-  <header class="header">
-    <div class="brand">
-      <img src="logo.png" alt="Dream logo">
+  <div class="phone">
+    <header>
+      <div class="logo"><img src="images/dream-logo.png" alt="Dream Logo"></div>
       <h1>Welcome to Dream!</h1>
-      <p class="subtag">Luxury Meeting Place</p>
+      <div class="sub">Luxury Meeting Place</div>
+    </header>
+
+    <div class="hero">
+      <img class="hero-bg" src="images/delivery-hero.jpg" alt="Package Delivery">
+      <div class="overlay"></div>
+      <div class="hero-text"><h2>Package Delivery</h2></div>
     </div>
-    <div class="hero"><img src="delivery.jpg" alt="Package Delivery"></div>
-  </header>
 
-  <section class="section">
-    <h2>PACKAGE DELIVERY</h2>
+    <div class="content">
+      <section class="card">
+        <h2 class="section-title">PACKAGE DELIVERY</h2>
 
-    <h3>Accepted Deliveries</h3>
-    <ul>
-      <li>Packages can only be delivered to the front desk during office hours.</li>
-      <li>Guests must sign for all deliveries.</li>
-    </ul>
+        <h3>Accepted Deliveries</h3>
+        <ul>
+          <li>Packages can only be delivered to the front desk during office hours.</li>
+          <li>Guests must sign for all deliveries.</li>
+        </ul>
 
-    <h3>Delivery Hours</h3>
-    <ul>
-      <li>Deliveries are accepted between 9:00 AM – 5:00 PM, Monday–Saturday.</li>
-      <li>No deliveries are accepted on Sundays or holidays.</li>
-    </ul>
+        <h3>Delivery Hours</h3>
+        <ul>
+          <li>Deliveries are accepted between 9:00 AM – 5:00 PM, Monday–Saturday.</li>
+          <li>No deliveries are accepted on Sundays or holidays.</li>
+        </ul>
 
-<h3>Package Pickup</h3>
-<ul>
-     <li>Guests must present ID or confirmation to pick up packages.</li>
-     <li>Please collect packages within 24 hours of arrival.</li>
-</ul>
+        <h3>Package Pickup</h3>
+        <ul>
+          <li>Guests must present ID or confirmation to pick up packages.</li>
+          <li>Please collect packages within 24 hours of arrival.</li>
+        </ul>
 
-<h3>Restrictions</h3>
-<ul>
-     <li>Oversized or heavy items may not be accepted.</li>
-     <li>Perishable goods are not guaranteed to be stored properly.</li>
-</ul>
-</section>
+        <h3>Restrictions</h3>
+        <ul>
+          <li>Oversized or heavy items may not be accepted.</li>
+          <li>Perishable goods are not guaranteed to be stored properly.</li>
+        </ul>
+      </section>
+    </div>
 
-<div class="footer">
-<button class="btn" onclick="location.href='index.html'">HOME</button>
-<button class="btn" onclick="location.href='beach-accesses.html'">NEXT</button>
-</div>
-<p class="legal">© Dream Destinations 30A. All rights reserved.</p>
-</main>
+    <div class="footer">
+      <button class="btn" onclick="location.href='index.html'">HOME</button>
+      <button class="btn" onclick="location.href='beach-accesses.html'">NEXT</button>
+    </div>
+    <div class="legal">© Dream Destinations 30A. All rights reserved.</div>
+  </div>
 
+<script>
+  const bg = document.querySelector('.hero-bg');
+  const heroText = document.querySelector('.hero-text');
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    bg.style.transform = `translateY(${y * 0.2}px) scale(1.08)`;
+    heroText.style.transform = `translateY(${y * 0.08}px)`;
+  });
+
+  const io = new IntersectionObserver((entries)=> {
+    entries.forEach(e => e.target.classList.toggle('in-view', e.isIntersecting));
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.card').forEach(el => io.observe(el));
+</script>
 </body>
 </html>
