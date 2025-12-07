@@ -189,6 +189,8 @@ ul li { margin: 6px 0; }
   transform: translateY(-2px);
 }
 
+
+
 .legal {
   text-align: center;
   font-size: 11px;
@@ -207,6 +209,56 @@ ul li { margin: 6px 0; }
   opacity: 1;
   transform: translateY(0);
 }
+
+.directory-section {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1rem 3rem;
+}
+
+.directory-section h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.directory-section h3 {
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+details {
+  border-bottom: 1px solid #eee;
+  padding: 0.4rem 0;
+}
+
+summary {
+  cursor: pointer;
+  font-weight: 600;
+  list-style: none;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+summary::before {
+  content: "+";
+  display: inline-block;
+  margin-right: 0.5rem;
+  font-weight: 700;
+}
+
+details[open] summary::before {
+  content: "–";
+}
+
+details p {
+  margin: 0.25rem 0 0.35rem 1.25rem;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+
 
 /* Responsive logo size */
 @media (max-width: 500px) {
@@ -267,59 +319,129 @@ ul li { margin: 6px 0; }
         </ul>
 
       
+<section class="directory-section">
+  <h2>Cafés & Restaurants in Seaside</h2>
+  <h6><i>Please note, all information regarding the cafes and restaurants are taken from their own sites and Seaside's official website. We have no responsibility for possible chnages.</i></h6>
 
-        <h3>Cafés & Restaurants on Seaside</h3>
-        <ul>
-          <li>Wild Nectar: </li>
-          <li>'drome</li>
-          <li>Wild Bill's Beach Dogs</li>
-          <li>The Shrimp Shack</li>
-          <li>The Meltdown on 30A</li>
-          <li>The Daytrader Tiki Bar & Restaurant</li>
-          <li>The C-Bar</li>
-          <li>Taco Bar</li>
-          <li>Pickle’s Burger and Shakes</li>
-          <li>Mr. Gyro Hero</li>
-          <li>It’s Heavenly Shortcakes and Ice Cream</li>
-          <li>Great Southern Cafe</li>
-          <li>Frostbites</li>
-          <li>Bud & Alley’s</li>
-          <li>B.F.F Frozens</li>
-          <li>Barefoot BBQ</li>
-          <li>87 Central Square</li>
-          <li>Crêpes du Soleil</li>
-          <li>Dawson’s Yogurt & Fudgeworks</li>
-          <li>Amavida Coffee & Tea</li>
-          <li>Black Bear Bread Co.</li>
-        </ul>
+  <!-- Coffee & Breakfast -->
+  <h3>Coffee & Breakfast Spots</h3>
 
-        <h3>Local Boutiques & Markets</h3>
-        <ul>
-          <li>Poeta</li>
-          <li>Onward Reserve</li>
-          <li>Brothers: Refined Men’s Clothier</li>
-          <li>Headley Hat Co</li>
-          <li>Lala Links: Permanent Jewelry</li>
-          <li>Town Square Shoes</li>
-          <li>Kids + baby by The Seaside Style®</li>
-          <li>The SEASIDE Style®</li>
-          <li>Sundog Books</li>
-          <li>SPORT by The Seaside Style®</li>
-          <li>Seaside Farmers Market: Join us in the Seaside Amphitheater every Tuesday and Saturday from 9 a.m. to 1 p.m.</li>
-          <li>Ophelia Swimwear</li>
-          <li>Ono Surf Shop</li>
-          <li>Modica Market: Family owned and operated gourmet grocery store since 1989, serving Southern Hospitality- centrally located in downtown Seaside.</li>
-          <li>Mercantile</li>
-          <li>Huck & Harlowe</li>
-          <li>Wood + Wave</li>
-          <li>Duckies Shop of Fun</li>
-          <li>Central Square Records</li>
-          <li>Cabana by The Seaside Style®</li>
-          <li>Art of Simple</li>
-          <li>Artful Eye</li>
-          <li>Anne Hunter Gallery</li>
-          <li>An Apartment in Paris</li>
-        </ul>
+  <details>
+    <summary>Amavida Coffee & Tea</summary>
+    <p>Local coffee roastery serving espresso drinks, teas, and light bites.</p>
+  </details>
+
+  <details>
+    <summary>Black Bear Bread Co.</summary>
+    <p>Bakery and café offering artisan breads, pastries, and breakfast options.</p>
+  </details>
+
+  <details>
+    <summary>Wild Nectar</summary>
+    <p>Wild Nectar serves fresh-pressed juices, vibrant fruit & grain bowls, and nourishing seasonal specialties. Great for a light, healthy start.</p>
+  </details>
+
+  <!-- Seafood & Southern Restaurants -->
+  <h3>Seafood & Southern Dining</h3>
+
+  <details>
+    <summary>Great Southern Cafe</summary>
+    <p>Southern-style dishes with fresh Gulf seafood in a casual setting.</p>
+  </details>
+
+  <details>
+    <summary>Bud & Alley’s</summary>
+    <p>Iconic Seaside restaurant with Gulf views, seafood, and classic beach fare.</p>
+  </details>
+
+  <details>
+    <summary>The Shrimp Shack</summary>
+    <p>est. 2009 – Home of the famous Lobster Roll and delicious peel-n’ eat shrimp as well as freshly shucked Gulf Oysters are waiting for you.</p>
+  </details>
+
+  <details>
+    <summary>The Daytrader Tiki Bar & Restaurant</summary>
+    <p>Located at the entrance of the iconic Coleman Beach Pavilion, The Daytrader invites guests to clock out of reality and clock into escape. Inspired by Chef Abuvala’s passion for the coastal cuisine and culture of the more than 1,000 islands that make up Polynesia in the Pacific Ocean, The Daytrader seeks to deliver a Polynesian Coast meets the Gulf of Mexico experience rooted in escapism, with a playful anti-corporate attitude to pair.</p>
+  </details>
+
+  <details>
+    <summary>The C-Bar</summary>
+    <p>The C-Bar is the perfect spot to enjoy colorful cocktails, delicious bites, and fun celebrations!</p>
+  </details>
+
+  <details>
+    <summary>87 Central Square</summary>
+    <p>Wine bar and restaurant with shareable plates and an upscale feel.</p>
+  </details>
+
+  <!-- Casual & Quick Bites -->
+  <h3>Casual & Quick Bites</h3>
+
+  <details>
+    <summary>Wild Bill's Beach Dogs</summary>
+    <p>Wild’s Bill’s Beach Dogs serves up gourmet American Wagyu all-beef hotdogs on Airstream Row in Seaside, Florida.</p>
+  </details>
+
+  <details>
+    <summary>The Meltdown on 30A</summary>
+    <p>Located on Airstream Row in Seaside, Florida, The Meltdown on 30A specializes in creating gourmet grilled cheese sandwiches that are homemade, using locally sourced ingredients.</p>
+  </details>
+
+  <details>
+    <summary>Taco Bar</summary>
+    <p>Casual tacos, margaritas, and Mexican-inspired options.</p>
+  </details>
+
+  <details>
+    <summary>Pickle’s Burger and Shakes</summary>
+    <p>est. 1993 – Pickle’s Burger & Shake is a fun, colorful, and delicious spot for the whole family. The All-American burger joint is also known for its signature sandwiches, locally sourced ice cream for hand-spun milkshakes, fried pickles & savory breakfast served up daily. </p>
+  </details>
+
+  <details>
+    <summary>Mr. Gyro Hero</summary>
+    <p>Gyros and Mediterranean-style quick bites.</p>
+  </details>
+
+  <details>
+    <summary>Barefoot BBQ</summary>
+    <p>Smoked barbecue plates and sandwiches with a beachy, casual feel.</p>
+  </details>
+
+  <details>
+    <summary>Crêpes du Soleil</summary>
+    <p>Sweet and savory crêpes, great for a quick meal or snack.</p>
+  </details>
+
+  <details>
+    <summary>'drome</summary>
+    <p>‘drome, offers dumplings, street eats, and sips in an exciting new dining experience in the heart of Seaside, Florida. </p>
+  </details>
+
+  <!-- Ice Cream, Sweets & Treats -->
+  <h3>Ice Cream, Sweets & Treats</h3>
+
+  <details>
+    <summary>It’s Heavenly Shortcakes and Ice Cream</summary>
+    <p>Ice cream, shortcakes, and sweet desserts.</p>
+  </details>
+
+  <details>
+    <summary>Dawson’s Yogurt & Fudgeworks</summary>
+    <p>Frozen yogurt, fudge, and sweet treats.</p>
+  </details>
+
+  <details>
+    <summary>Frostbites</summary>
+    <p>Shaved ice and frozen treats – perfect on hot days.</p>
+  </details>
+
+  <details>
+    <summary>B.F.F Frozens</summary>
+    <p>Frozen drinks and treats to cool off by the beach.</p>
+  </details>
+</section>
+
+
 
       
 
