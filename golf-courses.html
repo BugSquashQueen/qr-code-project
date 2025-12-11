@@ -1,11 +1,243 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Beach Access | Dream Destinations</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --mint: #cfeeee;
+  --mint-strong: #2b7a78;
+  --ring: #dfeaea;
+  --page-bg: #f7f2eb;
+  --glass: rgba(255,255,255,.66);
+  --radius: 20px;
+  --shadow: 0 10px 26px rgba(0,0,0,.12);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  background: url('images/beach-bg.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #1d2a2a;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  min-height: 100vh;
+  overflow-y: auto;
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(247, 242, 235, 0.75);
+  backdrop-filter: blur(3px);
+  z-index: -1;
+}
+
+.phone {
+  max-width: 420px;
+  width: 100%;
+  border-radius: 30px;
+  overflow: visible;
+  box-shadow: 0 6px 24px rgba(0,0,0,.08);
+  background: rgba(255,255,255,0.85);
+  position: relative;
+  backdrop-filter: blur(6px);
+}
+
+/* Header */
+header { text-align: center; padding: 16px; }
+.logo { width: 60px; height: 60px; border-radius: 50%; overflow: hidden; margin: 0 auto 8px; }
+.logo img { width: 100%; height: 100%; object-fit: contain; }
+header h1 { font-size: 18px; margin: 0; color: var(--mint-strong); }
+header .sub { font-size: 12px; color: #7c8a8a; margin-top: 4px; }
+
+/* Hero */
+.hero {
+  position: relative;
+  height: 38vh;
+  min-height: 180px;
+  max-height: 340px;
+  overflow: hidden;
+}
+.hero img.hero-bg {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transform: scale(1.08);
+}
+.hero .overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,.35) 0%, rgba(0,0,0,.15) 45%, rgba(0,0,0,0) 100%);
+}
+.hero .hero-text {
+  position: absolute; inset: 0;
+  display: grid; place-items: end start;
+  padding: 16px;
+  color: #fff;
+}
+.hero .hero-text h2 {
+  margin: 0 0 6px 0;
+  font-size: clamp(18px, 4.5vw, 24px);
+  font-weight: 700;
+}
+
+/* Content */
+.content {
+  margin-top: -60px;
+  padding: 0 16px 20px;
+}
+.card {
+  background: var(--glass);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 18px 16px;
+  max-width: 860px;
+  margin: 0 auto 16px;
+}
+.section-title {
+  font-size: 16px;
+  margin: 0 0 10px;
+  text-align: center;
+  color: var(--mint-strong);
+}
+h3 {
+  margin: 14px 0 6px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #2a3739;
+}
+ul { margin: 6px 0 0 20px; padding: 0; font-size: 14px; line-height: 1.5; }
+ul li { margin: 6px 0; }
+
+/* External link box */
+.external-link{
+  background:#f0faf9;
+  border-left:4px solid #c4e3dc;
+  padding:10px;
+  border-radius:8px;
+  font-size:13px;
+  margin-top:12px;
+}
+.external-link a{
+  color:#1b6f63;
+  font-weight:600;
+  text-decoration:none;
+}
+.external-link a:hover{text-decoration:underline;}
+
+/* Buttons */
+.footer {
+  display: flex; gap: 10px;
+  justify-content: flex-start;
+  padding: 14px 22px 16px;
+}
+.btn {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  background: linear-gradient(135deg, #2b7a78, #3ba99c);
+  color: #fff;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  box-shadow: 0 3px 8px rgba(43, 122, 120, 0.3);
+}
+.btn:hover {
+  background: linear-gradient(135deg, #226d6b, #2b7a78);
+  transform: translateY(-2px);
+}
+
+.legal {
+  text-align: center;
+  font-size: 11px;
+  color: #7c8a8a;
+  padding-bottom: 12px;
+}
+
+/* animations */
+.card { opacity: 0; transform: translateY(14px); transition: .45s ease; }
+.card.in-view { opacity: 1; transform: translateY(0); }
+</style>
 </head>
+
 <body>
-  
+  <div class="phone">
+    <header>
+      <div class="logo"><img src="dream png-01 (1).png" alt="Dream Logo"></div>
+      <h1>Welcome to Dream!</h1>
+      <div class="sub">Luxury is a Lifestyle, Memories are a Legacy</div>
+    </header>
+
+    <div class="hero">
+      <img class="hero-bg" src="baytowne.jpg" alt="Beach Access">
+      <div class="overlay"></div>
+      <div class="hero-text"><h2>Golf Course Information</h2></div>
+    </div>
+
+    <div class="content">
+      <section class="card">
+        <h2 class="section-title">GOLF COURSE INFO</h2>
+
+        <h3>Golf Courses</h3>
+        <ul>
+          <li><strong>Santa Rosa Golf & Beach Club: </strong>3458 E Highway 30A</li>
+         
+          <li>For more public beach access options, please check the link below.</li>
+          
+        </ul>
+
+       
+
+        <h3>For WaterColor Guests</h3>
+        <ul>
+          <li>Available for registered WaterColor guests only.</li>
+          <li>Wristbands must be visible upon entry and during your visit.</li>
+          <li><strong>Camp WaterColor:</strong> 205 Spartina Circle</li>
+        </ul>
+
+        
+
+        <div class="external-link">
+          🌐 For additional golf course points, visit  
+          <a href="https://30a.com/golf/" target="_blank">
+            Visit South Walton Beach & Bay Access Locations
+          </a>.
+        </div>
+      </section>
+    </div>
+
+    <div class="footer">
+      <button class="btn" onclick="location.href='index.html'">HOME</button>
+      <button class="btn" onclick="location.href='office-hours.html'">NEXT</button>
+    </div>
+
+    <div class="legal">© Dream Destinations 30A. All rights reserved.</div>
+  </div>
+
+<script>
+  const bg = document.querySelector('.hero-bg');
+  const heroText = document.querySelector('.hero-text');
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    bg.style.transform = `translateY(${y * 0.2}px) scale(1.08)`;
+    heroText.style.transform = `translateY(${y * 0.08}px)`;
+  });
+
+  const io = new IntersectionObserver((entries)=> {
+    entries.forEach(e => e.target.classList.toggle('in-view', e.isIntersecting));
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.card').forEach(el => io.observe(el));
+</script>
 </body>
 </html>
