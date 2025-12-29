@@ -1,185 +1,217 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Parking Rules | Dream Destinations</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Parking Rules | Dream Destinations</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
-<style>
-:root{
-  --mint: #cfeeee;
-  --mint-strong: #2b7a78;
-  --ring: #dfeaea;
-  --page-bg: #f7f2eb;
-  --glass: rgba(255,255,255,.66);
-  --radius: 20px;
-  --shadow: 0 10px 26px rgba(0,0,0,.12);
-}
+  <style>
+    :root{
+      --mint: #cfeeee;
+      --mint-strong: #2b7a78;
+      --ring: #dfeaea;
+      --page-bg: #f7f2eb;
+      --glass: rgba(255,255,255,.66);
+      --radius: 20px;
+      --shadow: 0 10px 26px rgba(0,0,0,.12);
+    }
 
-* { box-sizing: border-box; }
+    * { box-sizing: border-box; }
 
-body {
-  margin: 0;
-  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-  background: url('images/beach-bg.jpg') no-repeat center center fixed;
-  background-size: cover;
-  color: #1d2a2a;
-  display: flex;
-  justify-content: center;
-  padding: 20px;
-  min-height: 100vh;
-  overflow-y: auto;
-}
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: rgba(247, 242, 235, 0.75); /* beige overlay */
-  backdrop-filter: blur(3px);
-  z-index: -1;
-}
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background: url('images/beach-bg.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #1d2a2a;
+      display: flex;
+      justify-content: center;
+      padding: 20px;
+      min-height: 100vh;
+      overflow-y: auto;
+    }
 
-.phone {
-  max-width: 420px;
-  width: 100%;
-  border-radius: 30px;
-  overflow: visible;
-  box-shadow: 0 6px 24px rgba(0,0,0,.08);
-  background: rgba(255,255,255,0.85);
-  position: relative;
-  backdrop-filter: blur(6px);
-}
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: rgba(247, 242, 235, 0.75);
+      backdrop-filter: blur(3px);
+      z-index: -1;
+    }
 
-/* Header */
-header { text-align: center; padding: 16px; }
-.logo { width: 80px; height: 100px; border-radius: 50%; overflow: hidden; margin: 0 auto 8px; }
-.logo img { width: 100%; height: 100%; object-fit: contain; }
-header h1 { font-size: 18px; margin: 0; color: var(--mint-strong); }
-header .sub { font-size: 12px; color: #7c8a8a; margin-top: 4px; }
+    .phone {
+      max-width: 420px;
+      width: 100%;
+      border-radius: 30px;
+      overflow: hidden;
+      box-shadow: 0 6px 24px rgba(0,0,0,.08);
+      background: rgba(255,255,255,0.85);
+      position: relative;
+      backdrop-filter: blur(6px);
+    }
 
-/* Hero */
-.hero {
-  position: relative;
-  height: 38vh;
-  min-height: 180px;
-  max-height: 340px;
-  overflow: hidden;
-}
-.hero img.hero-bg {
-  position: absolute; inset: 0;
-  width: 100%; height: 100%;
-  object-fit: cover;
-  transform: scale(1.08);
-}
-.hero .overlay {
-  position: absolute; inset: 0;
-  background: linear-gradient(180deg, rgba(0,0,0,.35) 0%, rgba(0,0,0,.15) 45%, rgba(0,0,0,0) 100%);
-}
-.hero .hero-text {
-  position: absolute; inset: 0;
-  display: grid; place-items: end start;
-  padding: 16px;
-  color: #fff;
-}
-.hero .hero-text h2 {
-  margin: 0 0 6px 0;
-  font-size: clamp(18px, 4.5vw, 24px);
-  font-weight: 700;
-}
+    /* Header */
+    header { text-align: center; padding: 16px; }
+    .logo { width: 80px; height: 100px; border-radius: 16px; overflow: hidden; margin: 0 auto 8px; }
+    .logo img { width: 100%; height: 100%; object-fit: contain; }
+    header h1 { font-size: 18px; margin: 0; color: var(--mint-strong); }
+    header .sub { font-size: 12px; color: #7c8a8a; margin-top: 4px; }
 
-/* Content */
-.content {
-  margin-top: -60px;
-  padding: 0 16px 20px;
-}
-.card {
-  background: var(--glass);
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  padding: 18px 16px;
-  max-width: 860px;
-  margin: 0 auto 16px;
-}
-.section-title {
-  font-size: 16px;
-  margin: 0 0 10px;
-  text-align: center;
-  color: var(--mint-strong);
-}
-h3 {
-  margin: 14px 0 6px;
-  font-size: 14px;
-  font-weight: 700;
-  color: #2a3739;
-}
-ul { margin: 6px 0 0 20px; padding: 0; font-size: 14px; line-height: 1.5; }
-ul li { margin: 6px 0; }
+    /* Hero */
+    .hero {
+      position: relative;
+      height: 38vh;
+      min-height: 180px;
+      max-height: 340px;
+      overflow: hidden;
+    }
+    .hero img.hero-bg {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transform: scale(1.08);
+      will-change: transform;
+    }
+    .hero .overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,.35) 0%, rgba(0,0,0,.15) 45%, rgba(0,0,0,0) 100%);
+    }
+    .hero .hero-text {
+      position: absolute; inset: 0;
+      display: grid; place-items: end start;
+      padding: 16px;
+      color: #fff;
+      will-change: transform;
+    }
+    .hero .hero-text h2 {
+      margin: 0 0 6px 0;
+      font-size: clamp(18px, 4.5vw, 24px);
+      font-weight: 700;
+    }
 
-/* Buttons */
-.footer {
-  display: flex; gap: 10px;
-  justify-content: flex-start;
-  padding: 14px 22px 16px;
-}
-.btn {
-  flex: 1;
-  padding: 10px;
-  border-radius: 8px;
-  border: none;
-  background: linear-gradient(135deg, #2b7a78, #3ba99c);
-  color: #fff;
-  font-weight: 600;
-  font-size: 14px;
-  cursor: pointer;
-  transition: 0.3s ease;
-  box-shadow: 0 3px 8px rgba(43, 122, 120, 0.3);
-}
-.btn:hover {
-  background: linear-gradient(135deg, #226d6b, #2b7a78);
-  transform: translateY(-2px);
-}
+    /* Content */
+    .content {
+      margin-top: -60px;
+      padding: 0 16px 20px;
+    }
+    .card {
+      background: var(--glass);
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 18px 16px;
+      margin: 0 auto 16px;
+      opacity: 0;
+      transform: translateY(14px);
+      transition: .45s ease;
+    }
+    .card.in-view { opacity: 1; transform: translateY(0); }
 
-.legal {
-  text-align: center;
-  font-size: 11px;
-  color: #7c8a8a;
-  padding-bottom: 12px;
-}
+    .section-title {
+      font-size: 16px;
+      margin: 0 0 10px;
+      text-align: center;
+      color: var(--mint-strong);
+    }
 
+    .callout {
+      background: rgba(43, 122, 120, 0.10);
+      border: 1px solid rgba(43, 122, 120, 0.22);
+      border-radius: 14px;
+      padding: 12px;
+      font-size: 13px;
+      line-height: 1.45;
+      margin: 10px 0 14px;
+    }
 
+    h3 {
+      margin: 14px 0 6px;
+      font-size: 14px;
+      font-weight: 700;
+      color: #2a3739;
+    }
 
+    ul { margin: 6px 0 0 18px; padding: 0; font-size: 14px; line-height: 1.5; }
+    ul li { margin: 6px 0; }
 
-/* animations */
-.card { opacity: 0; transform: translateY(14px); transition: .45s ease; }
-.card.in-view { opacity: 1; transform: translateY(0); }
-</style>
+    .minor-title {
+      margin: 10px 0 6px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #2a3739;
+    }
+
+    /* Buttons */
+    .footer {
+      display: flex;
+      gap: 10px;
+      justify-content: flex-start;
+      padding: 14px 22px 16px;
+    }
+    .btn {
+      flex: 1;
+      padding: 10px;
+      border-radius: 10px;
+      border: none;
+      background: linear-gradient(135deg, #2b7a78, #3ba99c);
+      color: #fff;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      transition: 0.3s ease;
+      box-shadow: 0 3px 8px rgba(43, 122, 120, 0.3);
+    }
+    .btn:hover { background: linear-gradient(135deg, #226d6b, #2b7a78); transform: translateY(-2px); }
+    .btn:focus-visible { outline: 3px solid rgba(43, 122, 120, .35); outline-offset: 2px; }
+
+    .legal {
+      text-align: center;
+      font-size: 11px;
+      color: #7c8a8a;
+      padding-bottom: 12px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .card { transition: none; transform: none; opacity: 1; }
+      .hero img.hero-bg, .hero .hero-text { will-change: auto; }
+    }
+  </style>
 </head>
 
 <body>
-  <div class="phone">
+  <div class="phone" id="phone">
     <header>
-      <div class="logo"><img src="dream png-01 (1).png" alt="Dream Logo"></div>
+      <div class="logo">
+        <img src="dream png-01 (1).png" alt="Dream Destinations 30A logo">
+      </div>
       <h1>Welcome to Dream!</h1>
       <div class="sub">Luxury is a Lifestyle, Memories are a Legacy</div>
     </header>
 
     <div class="hero">
-      <img class="hero-bg" src="Screenshot 2025-11-30 143214.png" alt="">
+      <img class="hero-bg" src="Screenshot 2025-11-30 143214.png" alt="Beach view background">
       <div class="overlay"></div>
       <div class="hero-text"><h2>Parking Rules</h2></div>
     </div>
 
-    <div class="content">
-      <section class="card">
-        <h2 class="section-title">PARKING RULES</h2>
+    <main class="content">
+      <section class="card" aria-labelledby="parking-rules-title">
+        <h2 class="section-title" id="parking-rules-title">PARKING RULES</h2>
+
+        <div class="callout">
+          <strong>Quick parking reminder for NatureWalk guests:</strong>
+          Please park only in designated parking areas. Parking on streets, sidewalks (including tires on the sidewalk),
+          landscaped areas, district-owned roadways, or with tires outside marked spaces is not allowed and is a
+          <strong>tow-away zone</strong>. Any towing will be at the guest’s expense. Thank you for your cooperation.
+        </div>
 
         <h3>General Rules</h3>
         <ul>
           <li>Park only in designated spaces for your unit or side parking areas.</li>
-          <li><b>Please check your check-in instructions for avaliable parking spots on driveway of the property.</b></li>
+          <li><strong>Please check your check-in instructions for available parking spots on the property driveway.</strong></li>
           <li>No blocking of driveways, fire lanes, or other vehicles.</li>
           <li>Always display parking permits if provided.</li>
         </ul>
@@ -187,15 +219,14 @@ ul li { margin: 6px 0; }
         <h3>Restricted Areas</h3>
         <ul>
           <li>No parking on grass, sidewalks, or landscaped areas.</li>
-          <LI>Golf carts must be parked in the driveway or garage only. Street parking is prohibited. Carts parked on the street will be towed at guest’s expense. </LI>
+          <li>Golf carts must be parked in the driveway or garage only. Street parking is prohibited. Carts parked on the street will be towed at the guest’s expense.</li>
           <li>Loading/unloading zones must remain clear except for active use.</li>
           <li>Parking Violation: If unauthorized parking results in a ticket, you will be responsible for the fee, which will be added to your reservation and charged to the card on file.</li>
-          <li>When not in use, please park the Golf Cart in the provided garage, if garage available for guest use.</li>
+          <li>When not in use, please park the golf cart in the provided garage, if the garage is available for guest use.</li>
           <li>Please avoid parking golf carts on any grass areas. The Sheriff’s Office issues fines for parking on grass. We will charge your credit card for any violations.</li>
-          <li>Ensure the Golf Cart is fully charged before removing it from the property.</li>
-          <li>You may charge the cart during times it is not in use for your convenience</li>
-
-          <li>Handicap spaces reserved strictly for vehicles with valid placards.</li>
+          <li>Ensure the golf cart is fully charged before removing it from the property.</li>
+          <li>You may charge the cart during times it is not in use for your convenience.</li>
+          <li>Handicap spaces are reserved strictly for vehicles with valid placards.</li>
         </ul>
 
         <h3>Vehicle Requirements</h3>
@@ -203,56 +234,47 @@ ul li { margin: 6px 0; }
           <li>All vehicles must be operable, licensed, and insured.</li>
           <li>No overnight parking of trailers, boats, or oversized vehicles unless approved.</li>
           <li>Report accidents, damage, or violations immediately.</li>
-          
         </ul>
-
-        
       </section>
 
-      
-    </div>
+      <section class="card" aria-labelledby="watercolor-title">
+        <h2 class="section-title" id="watercolor-title">WATERCOLOR PARKING</h2>
 
+        <p class="minor-title"><strong>For WaterColor properties:</strong> Please read your check-in instructions carefully for parking pass information.</p>
 
-    <div class="content">
-      <section class="card">
-
+        <h3 class="minor-title">Important Information for WaterColor Properties</h3>
         <ul>
-          <b>For WaterColor properties, please read your check-in instructions to learn parking pass information carefully. </b>
-
-          <h6>Important Information For WaterColor Properties</h6>
-          <li>If you park in any designated side parking areas within WaterColor, please ensure that your parking pass is visibly displayed in your vehicle.</li>
-          <li>If you park in the property’s driveway, you do not need to hang the parking pass in your vehicle, as long as the vehicle is parked in the DRIVEWAY.</li>
+          <li>If you park in any designated side parking areas within WaterColor, ensure your parking pass is visibly displayed in your vehicle.</li>
+          <li>If you park in the property’s driveway, you do not need to display the parking pass, as long as the vehicle is parked in the driveway.</li>
         </ul>
-
-
-
       </section>
-
-
-
-
-    </div>
+    </main>
 
     <div class="footer">
       <button class="btn" onclick="location.href='index.html'">HOME</button>
       <button class="btn" onclick="location.href='package.html'">NEXT</button>
     </div>
+
     <div class="legal">© Dream Destinations 30A. All rights reserved.</div>
   </div>
 
-<script>
-  const bg = document.querySelector('.hero-bg');
-  const heroText = document.querySelector('.hero-text');
-  window.addEventListener('scroll', () => {
-    const y = window.scrollY;
-    bg.style.transform = `translateY(${y * 0.2}px) scale(1.08)`;
-    heroText.style.transform = `translateY(${y * 0.08}px)`;
-  });
+  <script>
+    const phone = document.getElementById('phone');
+    const bg = document.querySelector('.hero-bg');
+    const heroText = document.querySelector('.hero-text');
 
-  const io = new IntersectionObserver((entries)=> {
-    entries.forEach(e => e.target.classList.toggle('in-view', e.isIntersecting));
-  }, { threshold: 0.15 });
-  document.querySelectorAll('.card').forEach(el => io.observe(el));
-</script>
+    // If you want body scroll instead, switch `phone` to `window` and use `window.scrollY`.
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY || 0;
+      bg.style.transform = `translateY(${y * 0.2}px) scale(1.08)`;
+      heroText.style.transform = `translateY(${y * 0.08}px)`;
+    }, { passive: true });
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => e.target.classList.toggle('in-view', e.isIntersecting));
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.card').forEach(el => io.observe(el));
+  </script>
 </body>
 </html>
