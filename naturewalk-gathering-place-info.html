@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>NatureWalk | Gathering Place Info</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --mint: #cfeeee;
+  --mint-strong: #2b7a78;
+  --ring: #dfeaea;
+  --page-bg: #f7f2eb;
+  --glass: rgba(255,255,255,.66);
+  --radius: 20px;
+  --shadow: 0 10px 26px rgba(0,0,0,.12);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  background: url('images/beach-bg.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #1d2a2a;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  min-height: 100vh;
+  overflow-y: auto;
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(247, 242, 235, 0.75);
+  backdrop-filter: blur(3px);
+  z-index: -1;
+}
+
+.phone {
+  max-width: 420px;
+  width: 100%;
+  border-radius: 30px;
+  overflow: visible;
+  box-shadow: 0 6px 24px rgba(0,0,0,.08);
+  background: rgba(255,255,255,0.85);
+  position: relative;
+  backdrop-filter: blur(6px);
+}
+
+/* Header */
+header {
+  text-align: center;
+  padding: 16px;
+}
+
+header .logo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 8px;
+}
+
+header .logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+header h1 {
+  font-size: 18px;
+  margin: 0;
+  color: var(--mint-strong);
+}
+
+header .sub {
+  font-size: 12px;
+  color: #7c8a8a;
+  margin-top: 4px;
+}
+
+/* Hero */
+.hero {
+  position: relative;
+  height: 38vh;
+  min-height: 180px;
+  max-height: 340px;
+  overflow: hidden;
+}
+
+.hero img.hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.08);
+}
+
+.bubble {
+  background: rgba(43, 122, 120, 0.10);
+  border: 1px dashed rgba(43, 122, 120, 0.22);
+  border-radius: 14px;
+  padding: 14px;
+  font-size: 14px;
+  line-height: 1.45;
+  margin: 10px 0 14px;
+}
+
+.hero .overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,.35) 0%, rgba(0,0,0,.15) 45%, rgba(0,0,0,0) 100%);
+}
+
+.hero .hero-text {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: end start;
+  padding: 16px;
+  color: #fff;
+}
+
+.hero .hero-text h2 {
+  margin: 0 0 6px 0;
+  font-size: clamp(18px, 4.5vw, 24px);
+  font-weight: 700;
+}
+
+/* Content */
+.content {
+  margin-top: -60px;
+  padding: 0 16px 20px;
+}
+
+.card {
+  background: var(--glass);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 18px 16px;
+  max-width: 860px;
+  margin: 0 auto 16px;
+}
+
+.section-title {
+  font-size: 16px;
+  margin: 0 0 10px;
+  text-align: center;
+  color: var(--mint-strong);
+}
+
+h3 {
+  margin: 14px 0 6px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #2a3739;
+}
+
+ul {
+  margin: 6px 0 0 20px;
+  padding: 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+ul li { margin: 6px 0; }
+
+/* Directory / Details */
+.directory-section {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0.25rem 0 0.75rem;
+}
+
+details {
+  border-bottom: 1px solid #eee;
+  padding: 0.5rem 0;
+}
+
+summary {
+  cursor: pointer;
+  font-weight: 600;
+  list-style: none;
+  font-size: 14px;
+  color: #2a3739;
+}
+
+summary::-webkit-details-marker { display: none; }
+
+summary::before {
+  content: "+";
+  display: inline-block;
+  margin-right: 0.5rem;
+  font-weight: 700;
+  color: var(--mint-strong);
+}
+
+details[open] summary::before { content: "–"; }
+
+details .detail-body {
+  margin: 0.35rem 0 0.6rem 1.25rem;
+  font-size: 13px;
+  color: #4a5a5a;
+  line-height: 1.5;
+}
+
+details .detail-body ul {
+  margin: 8px 0 0 18px;
+  font-size: 13px;
+}
+
+/* Buttons */
+.footer {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-start;
+  padding: 14px 22px 16px;
+}
+
+.btn {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  background: linear-gradient(135deg, #2b7a78, #3ba99c);
+  color: #fff;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  box-shadow: 0 3px 8px rgba(43, 122, 120, 0.3);
+}
+
+.btn:hover {
+  background: linear-gradient(135deg, #226d6b, #2b7a78);
+  transform: translateY(-2px);
+}
+
+.legal {
+  text-align: center;
+  font-size: 11px;
+  color: #7c8a8a;
+  padding-bottom: 12px;
+}
+
+/* animations */
+.card {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: .45s ease;
+}
+.card.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive logo size */
+@media (max-width: 500px) {
+  header .logo { width: 80px; height: 80px; }
+}
+</style>
+</head>
+
+<body>
+  <div class="phone">
+    <header>
+      <div class="logo"><img src="dream png-01 (1).png" alt="Dream Logo"></div>
+      <h1>Welcome to Dream!</h1>
+      <div class="sub">Luxury is a Lifestyle, Memories are a Legacy</div>
+    </header>
+
+    <div class="hero">
+      <img class="hero-bg" src="Seaside Florida.jpg" alt="NatureWalk Gathering Place">
+      <div class="overlay"></div>
+      <div class="hero-text"><h2>NatureWalk • Gathering Place</h2></div>
+    </div>
+
+    <div class="content">
+      <section class="card">
+        <h2 class="section-title">NATUREWALK GATHERING PLACE INFORMATION</h2>
+
+        <div class="bubble">
+          This page includes key stay guidelines and departure instructions to help your trip go smoothly.
+        </div>
+
+        <h3>Bike & Bike Gear</h3>
+        <ul>
+          <li><strong>6 bikes</strong> are provided with the unit.</li>
+          <li>To reserve additional bikes and bike gear, please rent through the <strong>Dream Destinations 30A Concierge Page</strong>.</li>
+        </ul>
+
+        <section class="directory-section">
+          <h3>House Rules</h3>
+
+          <details>
+            <summary>No Smoking</summary>
+            <div class="detail-body">Smoking is not permitted within the home.</div>
+          </details>
+
+          <details>
+            <summary>No Pets</summary>
+            <div class="detail-body">Prior written approval is required for any pets.</div>
+          </details>
+
+          <details>
+            <summary>Air Conditioner Settings</summary>
+            <div class="detail-body">Maintain the air conditioner above <strong>70°F</strong> for optimal use.</div>
+          </details>
+
+          <details>
+            <summary>Linen and Towels</summary>
+            <div class="detail-body">All provided linen and towels are for in-home use only, excluding beach towels.</div>
+          </details>
+
+          <details>
+            <summary>Wet Towels</summary>
+            <div class="detail-body">Refrain from hanging wet towels on furniture or railings.</div>
+          </details>
+
+          <details>
+            <summary>Furniture and Accessories</summary>
+            <div class="detail-body">Return all furniture and accessories to their original locations before departure.</div>
+          </details>
+
+          <details>
+            <summary>Exterior Doors</summary>
+            <div class="detail-body">Keep exterior doors closed.</div>
+          </details>
+
+          <details>
+            <summary>Community Rules and Noise Ordinances</summary>
+            <div class="detail-body">
+              Adhere to all community rules and local noise ordinances. Any complaints may result in management involvement, law enforcement referral, and potential eviction.
+            </div>
+          </details>
+
+          <details>
+            <summary>Occupancy Policies</summary>
+            <div class="detail-body">
+              Strictly adhere to occupancy policies and limits. These guidelines are in place for your safety and the protection of the vacation home and rental industry. Violation may lead to immediate eviction with complete forfeiture of all payments.
+            </div>
+          </details>
+
+          <details>
+            <summary>Additional Guests</summary>
+            <div class="detail-body">Obtain prior approval for any guests beyond the specified limit.</div>
+          </details>
+
+          <div class="bubble">
+            Your cooperation ensures a harmonious stay and is greatly appreciated. Thank you for being respectful to the home, neighbors, and the community.
+          </div>
+
+          <h3>Departure Guidelines</h3>
+
+          <details>
+            <summary>Checkout Time</summary>
+            <div class="detail-body">
+              <ul>
+                <li>The standard checkout time is <strong>10:00 AM</strong>.</li>
+                <li>Late checkouts will result in a <strong>$200.00 fee</strong> (covers housekeeping and scheduling).</li>
+                <li>If you plan to leave before 10:00 AM, please inform us through the designated App.</li>
+              </ul>
+            </div>
+          </details>
+
+          <details>
+            <summary>Damage Reporting</summary>
+            <div class="detail-body">Report any accidental damage before departure to be covered by our Accidental Damage policy.</div>
+          </details>
+
+          <details>
+            <summary>Trash & Dishes</summary>
+            <div class="detail-body">
+              <ul>
+                <li>Ensure all trash is taken out before departure.</li>
+                <li>Wash all dishes or run them through the dishwasher.</li>
+              </ul>
+            </div>
+          </details>
+
+          <details>
+            <summary>Linens</summary>
+            <div class="detail-body">All linens are professionally laundered upon departure. Please refrain from washing linens or terry.</div>
+          </details>
+
+          <details>
+            <summary>A/C Setting</summary>
+            <div class="detail-body">Set the A/C temperature to <strong>78°F</strong>.</div>
+          </details>
+
+          <details>
+            <summary>Door Lock</summary>
+            <div class="detail-body">Confirm that the door lock is set to lock the door securely.</div>
+          </details>
+
+          <details>
+            <summary>Wristbands / Passes (If Applicable)</summary>
+            <div class="detail-body">Leave all wristbands or passes on the kitchen counter by the coffee maker.</div>
+          </details>
+
+          <details>
+            <summary>Golf Cart (If Applicable)</summary>
+            <div class="detail-body">Plug in and cover the golf cart before departure.</div>
+          </details>
+
+          <div class="bubble">
+            We are a full-service rental company and want to make sure you are as happy as possible with your vacation. If you experience any issues at all during your stay, please call us.
+          </div>
+        </section>
+      </section>
+    </div>
+
+    <div class="footer">
+      <button class="btn" onclick="location.href='index.html'">HOME</button>
+      <button class="btn" onclick="location.href='house-rules.html'">NEXT</button>
+    </div>
+
+    <div class="legal">© Dream Destinations 30A. All rights reserved.</div>
+  </div>
+
+<script>
+  const bg = document.querySelector('.hero-bg');
+  const heroText = document.querySelector('.hero-text');
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    bg.style.transform = `translateY(${y * 0.2}px) scale(1.08)`;
+    heroText.style.transform = `translateY(${y * 0.08}px)`;
+  });
+
+  const io = new IntersectionObserver((entries)=> {
+    entries.forEach(e => e.target.classList.toggle('in-view', e.isIntersecting));
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.card').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
