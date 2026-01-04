@@ -4,216 +4,223 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>House Rules | Dream Destinations</title>
+<meta name="description" content="House rules for your stay with Dream Destinations 30A." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
 :root{
-  --mint: #cfeeee;
-  --mint-strong: #2b7a78;
-  --ring: #dfeaea;
-  --page-bg: #f7f2eb;
-  --glass: rgba(255,255,255,.66);
-  --radius: 20px;
-  --shadow: 0 10px 26px rgba(0,0,0,.12);
+  --bg:#ffffff;
+  --card:#f9fbfb;
+  --brand:#2b7a78;
+  --mint:#cfeeee;
+  --mint-pressed:#bfe2e2;
+  --accent:#ffb15e;
+  --muted:#7c8a8a;
+  --ring:#dfeaea;
+  --radius:20px;
 }
 
-* { box-sizing: border-box; }
+*{box-sizing:border-box}
+html,body{height:100%}
 
-body {
-  margin: 0;
-  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+body{
+  margin:0;
+  font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
   background: url('images/beach-bg.jpg') no-repeat center center fixed;
-  background-size: cover;
-  color: #1d2a2a;
-  display: flex;
-  justify-content: center;
-  padding: 20px;
-  min-height: 100vh;
-  overflow-y: auto;
-}
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: rgba(247, 242, 235, 0.75); /* Beige overlay */
-  backdrop-filter: blur(3px);
-  z-index: -1;
+  background-size:cover;
+  color:#1b1f24;
+  display:flex;
+  justify-content:center;
+  padding:20px;
+  min-height:100vh;
+  overflow-y:auto;
 }
 
-.phone {
-  max-width: 420px;
-  width: 100%;
-  border-radius: 30px;
-  overflow: visible;
-  box-shadow: 0 6px 24px rgba(0,0,0,.08);
-  background: rgba(255,255,255,0.85);
-  position: relative;
-  backdrop-filter: blur(6px);
+/* light overlay like previous */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background: rgba(255,255,255,0.35);
+  backdrop-filter: blur(2px);
+  z-index:-1;
+}
+
+.phone{
+  max-width:420px;
+  width:100%;
+  border-radius:30px;
+  overflow:hidden;
+  box-shadow:0 6px 24px rgba(0,0,0,.06);
+  background:#fff;
+  position:relative;
 }
 
 /* Header */
-header {
-  text-align: center;
-  padding: 16px;
+header{
+  text-align:center;
+  padding:16px;
 }
-
-header .logo {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  overflow: hidden;
-  margin: 0 auto 8px;
+.logo{
+  width:90px;
+  height:100px;
+  border-radius:50%;
+  overflow:hidden;
+  margin:0 auto 8px;
+  border:1px solid var(--ring);
+  background:#f3f7f7;
 }
-
-header .logo img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-header h1 {
-  font-size: 18px;
-  margin: 0;
-  color: var(--mint-strong);
-}
-
-header .sub {
-  font-size: 12px;
-  color: #7c8a8a;
-  margin-top: 4px;
-}
+.logo img{ width:100%; height:100%; object-fit:contain; }
+header h1{ font-size:18px; margin:0; color:var(--brand); font-weight:700; }
+header .sub{ font-size:12px; color:var(--muted); margin-top:4px; }
 
 /* Hero */
-.hero {
-  position: relative;
-  height: 38vh;
-  min-height: 180px;
-  max-height: 340px;
-  overflow: hidden;
+.hero{
+  position:relative;
+  height:38vh;
+  min-height:180px;
+  max-height:340px;
+  overflow:hidden;
 }
-
-.hero img.hero-bg {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.hero img.hero-bg{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
   transform: scale(1.08);
+  will-change: transform;
 }
-
-.hero .overlay {
-  position: absolute;
-  inset: 0;
+.hero .overlay{
+  position:absolute;
+  inset:0;
   background: linear-gradient(180deg, rgba(0,0,0,.35) 0%, rgba(0,0,0,.15) 45%, rgba(0,0,0,0) 100%);
 }
-
-.hero .hero-text {
-  position: absolute;
-  inset: 0;
-  display: grid;
-  place-items: end start;
-  padding: 16px;
-  color: #fff;
+.hero .hero-text{
+  position:absolute;
+  inset:0;
+  display:grid;
+  place-items:end start;
+  padding:16px;
+  color:#fff;
+  will-change: transform;
 }
-
-.hero .hero-text h2 {
-  margin: 0 0 6px 0;
+.hero .hero-text h2{
+  margin:0;
   font-size: clamp(18px, 4.5vw, 24px);
-  font-weight: 700;
+  font-weight:700;
 }
 
 /* Content */
-.content {
-  margin-top: -60px;
-  padding: 0 16px 20px;
+.content{
+  margin-top:-15px;
+  padding:0 16px 20px;
 }
 
-.card {
-  background: var(--glass);
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
+/* GLASS CARD like previous */
+.card{
+  background: rgba(255,255,255,0.55);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,255,255,0.35);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.16);
   border-radius: var(--radius);
-  box-shadow: var(--shadow);
   padding: 18px 16px;
-  max-width: 860px;
   margin: 0 auto 16px;
+  position: relative;
+  overflow: hidden;
+
+  opacity:0;
+  transform: translateY(14px);
+  transition: .45s ease, background .25s ease, border-color .25s ease;
+}
+.card.in-view{ opacity:1; transform: translateY(0); }
+.card.scrolling{
+  background: rgba(255,255,255,0.42);
+  border-color: rgba(255,255,255,0.55);
 }
 
-.section-title {
-  font-size: 16px;
-  margin: 0 0 10px;
-  text-align: center;
-  color: var(--mint-strong);
+.section-title{
+  font-size:16px;
+  margin:0 0 10px;
+  text-align:center;
+  color:var(--brand);
+  letter-spacing:.2px;
 }
 
-h3 {
-  margin: 14px 0 6px;
-  font-size: 14px;
-  font-weight: 700;
-  color: #2a3739;
+h3{
+  font-size:14px;
+  margin:14px 0 6px;
+  color:#2a3739;
+  text-transform:uppercase;
+  letter-spacing:.06em;
 }
 
-ul {
-  margin: 6px 0 0 20px;
-  padding: 0;
-  font-size: 14px;
-  line-height: 1.5;
+ul{ margin:0; padding-left:18px; font-size:14px; line-height:1.55; }
+ul li{ margin:10px 0; }
+
+.note{
+  background: rgba(207,238,238,.55);
+  border: 1px solid rgba(43,122,120,.18);
+  padding: 10px 12px;
+  border-radius: 14px;
+  margin: 12px 0 0;
+  font-size: 13px;
 }
 
-ul li { margin: 6px 0; }
-
-/* Buttons */
-.footer {
-  display: flex;
-  gap: 10px;
-  justify-content: flex-start;
-  padding: 14px 22px 16px;
+/* Footer buttons (same as your check-in/out page) */
+.footer{
+  display:flex;
+  gap:10px;
+  justify-content:flex-start;
+  padding:14px 22px 16px;
 }
-
-.btn {
-  flex: 1;
-  padding: 10px;
-  border-radius: 8px;
-  border: none;
-  background: linear-gradient(135deg, #246890, #3ba99c);
-  color: #fff;
-  font-weight: 600;
-  font-size: 14px;
-  cursor: pointer;
-  transition: 0.3s ease;
-  box-shadow: 0 3px 8px rgba(43, 122, 120, 0.3);
+.btn{
+  flex:1;
+  padding:10px;
+  border-radius:8px;
+  border:none;
+  background: linear-gradient(135deg, #5a72a1, #3ba99c);
+  color:#fff;
+  font-weight:600;
+  font-size:14px;
+  cursor:pointer;
+  transition: .3s ease;
 }
-
-.btn:hover {
+.btn:hover{
   background: linear-gradient(135deg, #a6c9ec, #2b7a78);
   transform: translateY(-2px);
 }
 
-.legal {
-  text-align: center;
-  font-size: 11px;
-  color: #7c8a8a;
-  padding-bottom: 12px;
-}
-
-/* animations */
-.card {
-  opacity: 0;
-  transform: translateY(14px);
-  transition: .45s ease;
-}
-
-.card.in-view {
-  opacity: 1;
-  transform: translateY(0);
+.legal{
+  text-align:center;
+  font-size:11px;
+  color:var(--muted);
+  padding-bottom:12px;
 }
 
 /* Responsive logo size */
-@media (max-width: 500px) {
-  header .logo {
-    width: 80px;
-    height: 80px;
+@media (max-width: 500px){
+  .logo{ width:80px; height:80px; }
+}
+
+/* Dark mode similar behavior */
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#0e1111;
+    --card:#0f1515;
+    --brand:#d9f4f2;
+    --mint:#123;
+    --mint-pressed:#0f2a2a;
+    --muted:#9eb0b0;
+    --ring:#1d2a2a;
   }
+  body::before{ background: rgba(0,0,0,.35); backdrop-filter: blur(2px); }
+  .phone{ background:#0f1515; }
+  .card{ box-shadow:none; border-color: rgba(29,42,42,.8); }
+  .note{ background: rgba(18,51,51,.45); border-color: rgba(29,42,42,.9); }
 }
 </style>
 </head>
@@ -221,15 +228,17 @@ ul li { margin: 6px 0; }
 <body>
   <div class="phone">
     <header>
-      <div class="logo"><img src="dream png-01 (1).png" alt="Dream Logo"></div>
+      <div class="logo">
+        <img src="dream png-01 (1).png" alt="Dream Logo">
+      </div>
       <h1>Welcome to Dream!</h1>
       <div class="sub">Luxury is a Lifestyle, Memories are a Legacy</div>
     </header>
 
     <div class="hero">
-      <img class="hero-bg" src="houseeeee.png" alt="House Rules">
+      <img class="hero-bg" src="houseeeee.png" alt="House Rules" loading="eager" decoding="async">
       <div class="overlay"></div>
-      <div class="hero-text"><h2>House Rules</h2></div>
+      
     </div>
 
     <div class="content">
@@ -239,12 +248,11 @@ ul li { margin: 6px 0; }
         <h3>No Smoking</h3>
         <ul>
           <li>Smoking is not allowed inside the property.</li>
-          
         </ul>
 
         <h3>No Pets</h3>
         <ul>
-          <li> If you are not staying in one of our designated pet-friendly properties, pets are strictly prohibited. Our pet policy is very firm, and any exceptions require prior written approval.</li>
+          <li>If you are not staying in one of our designated pet-friendly properties, pets are strictly prohibited. Any exception requires prior written approval.</li>
         </ul>
 
         <h3>Quiet Hours</h3>
@@ -252,30 +260,27 @@ ul li { margin: 6px 0; }
           <li>Please respect quiet hours from 10:00 PM – 8:00 AM.</li>
         </ul>
 
-       
-
-        
-
         <h3>Guest Policy</h3>
         <ul>
-          <li>Strictly adhere to occupancy policies and limits. These guidelines are in place for your safety and the protection of the vacation home and rental industry. Violation may lead to immediate eviction with complete forfeiture of all payments.</li>
-          <li>Additional Guests: Obtain prior approval for any guests beyond the specified limit.</li>
+          <li>Occupancy policies and limits are strictly enforced. Violations may result in immediate eviction with forfeiture of all payments.</li>
+          <li>Additional guests require prior approval.</li>
         </ul>
 
         <h3>Respect Property</h3>
         <ul>
           <li>No parties or large gatherings.</li>
           <li>Do not move furniture without approval.</li>
-          <li>Air Conditioner Settings: Maintain the air conditioner 74 degrees for optimal use.</li>
-          <li>Linen and Towels: All provided linen and towels are for in-home use only, excluding beach towels.</li>
-          <li>Wet Towels: Refrain from hanging wet towels on furniture or railings.</li>
-          <li>Furniture and Accessories: Return all furniture and accessories to their original locations before departure.</li>
-          <li>Exterior Doors: Keep exterior doors closed.</li>
-          <li>Trash: Trash pickup is on Mondays and Thursdays. Note the strict HOA regulations. Kindly ensure that the bear straps are properly fastened to the trash can to maintain a secure and wildlife-resistant environment.</li>
-
+          <li><b>A/C:</b> Maintain 74°F for optimal use.</li>
+          <li><b>Linens & towels:</b> For in-home use only (excluding beach towels).</li>
+          <li>Do not hang wet towels on furniture or railings.</li>
+          <li>Return furniture and accessories to their original locations before departure.</li>
+          <li>Keep exterior doors closed.</li>
+          <li><b>Trash:</b> Pickup Mondays & Thursdays. Fasten bear straps to follow HOA rules.</li>
         </ul>
 
-        
+        <div class="note">
+          Tip: Keep noise and patio activity low at night to avoid HOA complaints.
+        </div>
       </section>
     </div>
 
@@ -288,18 +293,33 @@ ul li { margin: 6px 0; }
   </div>
 
 <script>
+  // Parallax (same behavior)
   const bg = document.querySelector('.hero-bg');
   const heroText = document.querySelector('.hero-text');
+
   window.addEventListener('scroll', () => {
-    const y = window.scrollY;
+    const y = window.scrollY || 0;
     bg.style.transform = `translateY(${y * 0.2}px) scale(1.08)`;
     heroText.style.transform = `translateY(${y * 0.08}px)`;
-  });
+  }, { passive: true });
 
+  // Fade in cards when visible
   const io = new IntersectionObserver((entries)=> {
     entries.forEach(e => e.target.classList.toggle('in-view', e.isIntersecting));
   }, { threshold: 0.15 });
+
   document.querySelectorAll('.card').forEach(el => io.observe(el));
+
+  // Glass reacts while scrolling (same as previous)
+  let scrollTimer;
+  window.addEventListener('scroll', () => {
+    document.querySelectorAll('.card').forEach(card => card.classList.add('scrolling'));
+
+    clearTimeout(scrollTimer);
+    scrollTimer = setTimeout(() => {
+      document.querySelectorAll('.card').forEach(card => card.classList.remove('scrolling'));
+    }, 120);
+  }, { passive: true });
 </script>
 </body>
 </html>
