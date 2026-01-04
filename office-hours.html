@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Office Hours | Dream Destinations</title>
-<meta name="description" content="Office hours and contact information for Dream Destinations 30A." />
+<meta name="description" content="Dream Destinations 30A office hours and contact info." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
@@ -14,17 +14,15 @@
   --mint: #cfeeee;
   --mint-strong: #2b7a78;
   --ring: #dfeaea;
-  --page-bg: #f7f2eb;
   --radius: 20px;
 
-  /* glass + shadows consistent */
   --glass: rgba(255,255,255,0.55);
   --glass-strong: rgba(255,255,255,0.42);
   --shadow: 0 18px 40px rgba(0,0,0,0.16);
 }
 
-* { box-sizing: border-box; }
-html,body{height:100%}
+*{ box-sizing:border-box; }
+html,body{ height:100%; }
 
 body{
   margin:0;
@@ -36,10 +34,9 @@ body{
   justify-content:center;
   padding:20px;
   min-height:100vh;
-  overflow-y:auto;
+  overflow:hidden; /* page doesn't scroll */
 }
 
-/* SAME overlay as your main style */
 body::before{
   content:"";
   position:fixed;
@@ -49,6 +46,7 @@ body::before{
   z-index:-1;
 }
 
+/* phone scroll container */
 .phone{
   max-width:420px;
   width:100%;
@@ -57,12 +55,17 @@ body::before{
   box-shadow:0 6px 24px rgba(0,0,0,.06);
   background:#fff;
   position:relative;
+
+  height: calc(100vh - 40px);
+  overflow-y:auto;
+  -webkit-overflow-scrolling: touch;
 }
 
-/* Header (match your check-in page) */
+/* Header */
 header{
   text-align:center;
   padding:16px;
+  background:#fff;
 }
 .logo{
   width:90px;
@@ -71,21 +74,9 @@ header{
   overflow:hidden;
   margin:0 auto 8px;
 }
-.logo img{
-  width:100%;
-  height:100%;
-  object-fit:contain;
-}
-header h1{
-  font-size:18px;
-  margin:0;
-  color: var(--mint-strong);
-}
-header .sub{
-  font-size:12px;
-  color:#7c8a8a;
-  margin-top:4px;
-}
+.logo img{ width:100%; height:100%; object-fit:contain; }
+header h1{ font-size:18px; margin:0; color:var(--mint-strong); }
+header .sub{ font-size:12px; color:#7c8a8a; margin-top:4px; }
 
 /* Hero */
 .hero{
@@ -126,11 +117,13 @@ header .sub{
 
 /* Content */
 .content{
-  margin-top:-15px;          /* SAME as your preferred */
+  margin-top:-15px;
   padding:0 16px 20px;
+
+  /* ✅ reserve space so content never hides behind sticky footer */
+  padding-bottom: 120px;
 }
 
-/* Glass card (same behavior) */
 .card{
   background: var(--glass);
   -webkit-backdrop-filter: blur(14px);
@@ -177,16 +170,14 @@ ul{
 }
 ul li{ margin:10px 0; }
 
-/* clickable contact styling */
 .content a{
   color:#1b6f63;
   font-weight:700;
   text-decoration:none;
 }
-.content a:hover{ text-decoration: underline; }
+.content a:hover{ text-decoration:underline; }
 
-/* Note box (same as your "note" style) */
-.note{
+.info-box{
   background: rgba(207,238,238,.55);
   border: 1px solid rgba(43,122,120,.18);
   padding: 10px 12px;
@@ -195,12 +186,19 @@ ul li{ margin:10px 0; }
   font-size: 13px;
 }
 
-/* Buttons */
+/* ✅ Sticky footer inside phone (no overlap) */
 .footer{
+  position: sticky;
+  bottom: 0;
+  z-index: 5;
+
   display:flex;
   gap:10px;
   justify-content:flex-start;
   padding:14px 22px 16px;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(8px);
+  border-top: 1px solid rgba(223,234,234,0.8);
 }
 .btn{
   flex:1;
@@ -223,23 +221,33 @@ ul li{ margin:10px 0; }
   text-align:center;
   font-size:11px;
   color:#7c8a8a;
-  padding-bottom:12px;
+  padding: 0 0 12px;
+  background:#fff;
+}
+
+/* Mobile full screen */
+@media (max-width: 500px){
+  body{ padding:0; }
+  .phone{
+    height: 100vh;
+    border-radius: 0;
+  }
 }
 </style>
 </head>
 
 <body>
-  <div class="phone">
+  <div class="phone" id="phoneScroll">
     <header>
       <div class="logo"><img src="dream png-01 (1).png" alt="Dream Logo"></div>
-      <h1>Welcome to Dream!</h1>
+      <h1>Dream Destinations Office</h1>
       <div class="sub">Luxury is a Lifestyle, Memories are a Legacy</div>
     </header>
 
     <div class="hero">
       <img class="hero-bg" src="ChatGPT Image Dec 23, 2025, 07_55_43 AM.png" alt="Office Photo" loading="eager" decoding="async">
       <div class="overlay"></div>
-      
+      <div class="hero-text"><h2>Office Hours</h2></div>
     </div>
 
     <div class="content">
@@ -249,7 +257,7 @@ ul li{ margin:10px 0; }
         <h3>Regular Hours</h3>
         <ul>
           <li>We are open every day.</li>
-          <li><b>Monday – Sunday:</b> 9:00 AM – 5:00 PM</li>
+          <li>Monday – Sunday: <b>9:00 AM – 5:00 PM</b></li>
         </ul>
 
         <h3>Contact</h3>
@@ -258,12 +266,13 @@ ul li{ margin:10px 0; }
           <li>📧 <a href="mailto:reservations@dreamdestinations30a.com">reservations@dreamdestinations30a.com</a></li>
         </ul>
 
-        <div class="note">
-          <b>After-hours:</b> For urgent assistance, please text <b><a href="tel:+18506665662">(850) 666-5662</a></b>.
+        <div class="info-box">
+          <b>After-hours urgent help:</b> Please text our 24-hour line at <b>(850) 666-5662</b>.
         </div>
       </section>
     </div>
 
+    <!-- ✅ Buttons are here, inside .phone -->
     <div class="footer">
       <button class="btn" onclick="location.href='index.html'">HOME</button>
       <button class="btn" onclick="location.href='things-to-do.html'">NEXT</button>
@@ -273,23 +282,27 @@ ul li{ margin:10px 0; }
   </div>
 
 <script>
+  const phone = document.getElementById('phoneScroll');
   const bg = document.querySelector('.hero-bg');
   const heroText = document.querySelector('.hero-text');
 
-  window.addEventListener('scroll', () => {
-    const y = window.scrollY || 0;
+  // Parallax based on PHONE scroll
+  phone.addEventListener('scroll', () => {
+    const y = phone.scrollTop || 0;
     bg.style.transform = `translateY(${y * 0.2}px) scale(1.08)`;
     heroText.style.transform = `translateY(${y * 0.08}px)`;
   }, { passive: true });
 
+  // Fade-in cards inside phone
   const io = new IntersectionObserver((entries)=> {
     entries.forEach(e => e.target.classList.toggle('in-view', e.isIntersecting));
-  }, { threshold: 0.15 });
+  }, { threshold: 0.15, root: phone });
 
   document.querySelectorAll('.card').forEach(el => io.observe(el));
 
+  // Glass reacts while scrolling
   let scrollTimer;
-  window.addEventListener('scroll', () => {
+  phone.addEventListener('scroll', () => {
     document.querySelectorAll('.card').forEach(card => card.classList.add('scrolling'));
     clearTimeout(scrollTimer);
     scrollTimer = setTimeout(() => {
