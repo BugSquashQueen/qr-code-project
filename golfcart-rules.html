@@ -4,6 +4,9 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Golf Cart Rules | Dream Destinations</title>
+<meta name="description" content="Golf cart rules for your stay with Dream Destinations 30A." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
@@ -12,9 +15,7 @@
   --mint-strong: #2b7a78;
   --ring: #dfeaea;
   --page-bg: #f7f2eb;
-  --glass: rgba(255,255,255,.66);
   --radius: 20px;
-  --shadow: 0 10px 26px rgba(0,0,0,.12);
 }
 
 * { box-sizing: border-box; }
@@ -36,31 +37,36 @@ body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background: rgba(247, 242, 235, 0.75); /* <— THIS IS THE beige overlay */
-  backdrop-filter: blur(3px);
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(2px);
   z-index: -1;
 }
-
 
 .phone {
   max-width: 420px;
   width: 100%;
   border-radius: 30px;
-  overflow: visible;
-  box-shadow: 0 6px 24px rgba(0,0,0,.08);
-  background: rgba(255,255,255,0.85);
+  overflow: hidden;
+  box-shadow: 0 6px 24px rgba(0,0,0,.06);
+  background: #fff;
   position: relative;
-  backdrop-filter: blur(6px);
 }
 
-/* Header */
-header { text-align: center; padding: 16px; }
-.logo { width: 90px; height: 100px; border-radius: 50%; overflow: hidden; margin: 0 auto 8px; }
+header {
+  text-align: center;
+  padding: 16px;
+}
+.logo {
+  width: 90px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 8px;
+}
 .logo img { width: 100%; height: 100%; object-fit: contain; }
 header h1 { font-size: 18px; margin: 0; color: var(--mint-strong); }
 header .sub { font-size: 12px; color: #7c8a8a; margin-top: 4px; }
 
-/* Hero */
 .hero {
   position: relative;
   height: 38vh;
@@ -69,20 +75,27 @@ header .sub { font-size: 12px; color: #7c8a8a; margin-top: 4px; }
   overflow: hidden;
 }
 .hero img.hero-bg {
-  position: absolute; inset: 0;
-  width: 100%; height: 100%;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   transform: scale(1.08);
+  will-change: transform;
 }
 .hero .overlay {
-  position: absolute; inset: 0;
+  position: absolute;
+  inset: 0;
   background: linear-gradient(180deg, rgba(0,0,0,.35) 0%, rgba(0,0,0,.15) 45%, rgba(0,0,0,0) 100%);
 }
 .hero .hero-text {
-  position: absolute; inset: 0;
-  display: grid; place-items: end start;
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: end start;
   padding: 16px;
   color: #fff;
+  will-change: transform;
 }
 .hero .hero-text h2 {
   margin: 0 0 6px 0;
@@ -90,39 +103,64 @@ header .sub { font-size: 12px; color: #7c8a8a; margin-top: 4px; }
   font-weight: 700;
 }
 
-/* Content */
 .content {
-  margin-top: -60px;
+  margin-top: -15px;
   padding: 0 16px 20px;
 }
-.card {
-  background: var(--glass);
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
+
+.card{
+  background: rgba(255,255,255,0.55);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,255,255,0.35);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.16);
   border-radius: var(--radius);
-  box-shadow: var(--shadow);
   padding: 18px 16px;
-  max-width: 860px;
   margin: 0 auto 16px;
+  position: relative;
+  overflow: hidden;
+
+  opacity: 0;
+  transform: translateY(14px);
+  transition: .45s ease, background .25s ease, border-color .25s ease;
 }
+.card.in-view{ opacity: 1; transform: translateY(0); }
+
+.card.scrolling{
+  background: rgba(255,255,255,0.42);
+  border-color: rgba(255,255,255,0.55);
+}
+
 .section-title {
   font-size: 16px;
   margin: 0 0 10px;
   text-align: center;
   color: var(--mint-strong);
+  letter-spacing: .2px;
 }
-.subhead {
-  margin: 14px 0 6px;
-  font-size: 14px;
-  font-weight: 700;
-  color: #2a3739;
-}
-ul.points { margin: 6px 0 0 20px; padding: 0; font-size: 14px; line-height: 1.5; }
-ul.points li { margin: 6px 0; }
 
-/* Buttons */
+h3 {
+  font-size: 14px;
+  margin: 10px 0 6px;
+  color: #333;
+  text-transform: uppercase;
+}
+
+ul { margin: 0; padding-left: 18px; font-size: 14px; line-height: 1.5; }
+ul li { margin: 10px 0; }
+
+.note {
+  background: rgba(207,238,238,.55);
+  border: 1px solid rgba(43,122,120,.18);
+  padding: 10px 12px;
+  border-radius: 14px;
+  margin: 10px 0;
+  font-size: 13px;
+}
+
 .footer {
-  display: flex; gap: 10px;
+  display: flex;
+  gap: 10px;
   justify-content: flex-start;
   padding: 14px 22px 16px;
 }
@@ -149,74 +187,101 @@ ul.points li { margin: 6px 0; }
   color: #7c8a8a;
   padding-bottom: 12px;
 }
-
-/* animations */
-.card { opacity: 0; transform: translateY(14px); transition: .45s ease; }
-.card.in-view { opacity: 1; transform: translateY(0); }
 </style>
 </head>
 
 <body>
   <div class="phone">
     <header>
-      <div class="logo"><img src="dream png-01 (1).png" alt="Dream Logo"></div>
+      <div class="logo">
+        <img src="dream png-01 (1).png" alt="Dream Logo">
+      </div>
       <h1>Welcome to Dream!</h1>
       <div class="sub">Luxury is a Lifestyle, Memories are a Legacy</div>
     </header>
 
     <div class="hero">
-      <img class="hero-bg" src="DJI_0029.JPG" alt="">
+      <img class="hero-bg" src="DJI_0029.JPG" alt="Golf Cart Rules" width="1200" height="800" loading="eager" decoding="async">
       <div class="overlay"></div>
-      <div class="hero-text"><h2>Golf Cart Rules</h2></div>
+      
     </div>
 
     <div class="content">
       <section class="card">
-        <h2 class="section-title">USE & ELIGIBILITY</h2>
-        <ul class="points">
-          <li>Driver must be <strong>21+</strong> with a valid driver’s license.</li>
+        <h2 class="section-title">GOLF CART RULES</h2>
+
+        <h3>Use & Eligibility</h3>
+        <ul>
+          <li>Driver must be <b>21+</b> with a valid driver’s license.</li>
           <li>Seatbelts required where equipped; max passengers = number of seats.</li>
           <li>No driving under the influence of alcohol or drugs.</li>
-          <li>Golf carts must be parked in the driveway or garage only. Street parking is prohibited. Carts parked on the street will be towed at guest’s expense.</li>
-          <li>Ensure the Golf Cart is fully charged before removing it from the property.</li>
-          <li>The golf cart must not be used if the battery charge is below 20%. Management monitors the charge level through our designated app.</li>
-          <li>If the golf cart is operated when the charge level is below 20% and requires towing, a $150.00 fee will be applied to your reservation. This fee will be automatically charged to the credit card on file.</li>
-          <li>Find the Golf Cart keys on the kitchen countertop; leave them there upon check-out.</li>
-          <li>Missing keys will result in a $100.00 fee charged to the card on file.</li>
-          <li>Observe posted speed limits and all traffic laws while using the Golf Cart.</li>
-          <i><strong>Parking Violation:</strong> If unauthorized parking results in a ticket, you will be responsible for the fee, which will be added to your reservation and charged to the card on file.</i>
-          <li>The Golf Cart is not permitted on Nature Trails, Boardwalks, or Sidewalks.</li>
-          <li>Avoid parking the Golf Cart on landscaping, grassy areas, or sidewalks.</li>
-          <li>When not in use, please park the Golf Cart in the provided garage, if garage available for guest use.</li>
-          
+          <li>Observe posted speed limits and all traffic laws.</li>
         </ul>
+
+        <h3>Parking</h3>
+        <ul>
+          <li>Park in the <b>driveway or garage only</b>. <b>No street parking</b> (tow at guest expense).</li>
+          <li>Avoid parking on landscaping, grassy areas, sidewalks, nature trails, or boardwalks.</li>
+          <li>If unauthorized parking results in a ticket, the fee will be added to your reservation and charged to the card on file.</li>
+        </ul>
+
+        <h3>Charging & Fees</h3>
+        <ul>
+          <li>Ensure the golf cart is fully charged before removing it from the property.</li>
+          <li><b>Do not operate below 20%</b> battery (charge monitored by management).</li>
+        </ul>
+
+        <div class="note">
+          <b>Fee:</b> If operated under 20% and towing is required, a <b>$150</b> fee will be charged to the card on file.
+        </div>
+
+        <h3>Keys</h3>
+        <ul>
+          <li>Golf cart keys are on the kitchen countertop; leave them there at checkout.</li>
+        </ul>
+
+        <div class="note">
+          <b>Missing keys:</b> $100 fee charged to the card on file.
+        </div>
       </section>
-
-
-
-     
     </div>
 
     <div class="footer">
       <button class="btn" onclick="location.href='index.html'">HOME</button>
       <button class="btn" onclick="location.href='parking.html'">NEXT</button>
     </div>
+
     <div class="legal">© Dream Destinations 30A. All rights reserved.</div>
   </div>
 
-<script>
-  const bg = document.querySelector('.hero-bg');
-  const heroText = document.querySelector('.hero-text');
-  window.addEventListener('scroll', () => {
-    const y = window.scrollY;
-    bg.style.transform = `translateY(${y * 0.2}px) scale(1.08)`;
-    heroText.style.transform = `translateY(${y * 0.08}px)`;
-  });
+  <script>
+    // Parallax
+    const bg = document.querySelector('.hero-bg');
+    const heroText = document.querySelector('.hero-text');
 
-  const io = new IntersectionObserver((entries)=> {
-    entries.forEach(e => e.target.classList.toggle('in-view', e.isIntersecting));
-  }, { threshold: 0.15 });
-  document.querySelectorAll('.card').forEach(el => io.observe(el));
-</script>
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY || 0;
+      bg.style.transform = `translateY(${y * 0.2}px) scale(1.08)`;
+      heroText.style.transform = `translateY(${y * 0.08}px)`;
+    }, { passive: true });
+
+    // Fade in cards when visible
+    const io = new IntersectionObserver((entries)=> {
+      entries.forEach(e => e.target.classList.toggle('in-view', e.isIntersecting));
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.card').forEach(el => io.observe(el));
+
+    // Glass reacts while scrolling
+    let scrollTimer;
+    window.addEventListener('scroll', () => {
+      document.querySelectorAll('.card').forEach(card => card.classList.add('scrolling'));
+
+      clearTimeout(scrollTimer);
+      scrollTimer = setTimeout(() => {
+        document.querySelectorAll('.card').forEach(card => card.classList.remove('scrolling'));
+      }, 120);
+    }, { passive: true });
+  </script>
 </body>
 </html>

@@ -3,7 +3,8 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Beach Access | Dream Destinations</title>
+<title>Golf Courses | Dream Destinations</title>
+<meta name="description" content="Golf course information for your stay with Dream Destinations 30A." />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
@@ -71,6 +72,7 @@ header .sub { font-size: 12px; color: #7c8a8a; margin-top: 4px; }
   width: 100%; height: 100%;
   object-fit: cover;
   transform: scale(1.08);
+  will-change: transform;
 }
 .hero .overlay {
   position: absolute; inset: 0;
@@ -81,6 +83,7 @@ header .sub { font-size: 12px; color: #7c8a8a; margin-top: 4px; }
   display: grid; place-items: end start;
   padding: 16px;
   color: #fff;
+  will-change: transform;
 }
 .hero .hero-text h2 {
   margin: 0 0 6px 0;
@@ -102,7 +105,13 @@ header .sub { font-size: 12px; color: #7c8a8a; margin-top: 4px; }
   padding: 18px 16px;
   max-width: 860px;
   margin: 0 auto 16px;
+
+  opacity: 0;
+  transform: translateY(14px);
+  transition: .45s ease;
 }
+.card.in-view { opacity: 1; transform: translateY(0); }
+
 .section-title {
   font-size: 16px;
   margin: 0 0 10px;
@@ -116,23 +125,38 @@ h3 {
   color: #2a3739;
 }
 ul { margin: 6px 0 0 20px; padding: 0; font-size: 14px; line-height: 1.5; }
-ul li { margin: 6px 0; }
+ul li { margin: 8px 0; }
 
-/* External link box */
+/* Make course addresses tappable */
+.content a{
+  color:#1b6f63;
+  font-weight:700;
+  text-decoration:none;
+}
+.content a:hover{ text-decoration: underline; }
+
+/* External link box (bigger tap targets) */
 .external-link{
   background:#f0faf9;
   border-left:4px solid #c4e3dc;
-  padding:10px;
-  border-radius:8px;
+  padding:12px;
+  border-radius:10px;
   font-size:13px;
   margin-top:12px;
 }
 .external-link a{
+  display:inline-block;
+  margin-top:8px;
+  padding:10px 14px;
+  background: linear-gradient(135deg, #cfeeee, #eaf7f6);
+  border-radius: 999px;
   color:#1b6f63;
-  font-weight:600;
+  font-weight:700;
   text-decoration:none;
 }
-.external-link a:hover{text-decoration:underline;}
+.external-link a:hover{
+  background: linear-gradient(135deg, #bfeaea, #dff3f1);
+}
 
 /* Buttons */
 .footer {
@@ -164,10 +188,6 @@ ul li { margin: 6px 0; }
   color: #7c8a8a;
   padding-bottom: 12px;
 }
-
-/* animations */
-.card { opacity: 0; transform: translateY(14px); transition: .45s ease; }
-.card.in-view { opacity: 1; transform: translateY(0); }
 </style>
 </head>
 
@@ -180,7 +200,7 @@ ul li { margin: 6px 0; }
     </header>
 
     <div class="hero">
-      <img class="hero-bg" src="baytowne.jpg" alt="Beach Access">
+      <img class="hero-bg" src="baytowne.jpg" alt="Golf Courses" loading="eager" decoding="async">
       <div class="overlay"></div>
       <div class="hero-text"><h2>Golf Course Information</h2></div>
     </div>
@@ -191,29 +211,43 @@ ul li { margin: 6px 0; }
 
         <h3>Golf Courses</h3>
         <ul>
-          <li><strong>Santa Rosa Golf & Beach Club: </strong>3458 E Highway 30A</li>
-          <li><strong>Baytowne Golf Club: </strong>1199 Troon Dr, Miramar Beach, FL 32550-4510</li>
-          <li><strong>Burnt Pine Golf Club: </strong>3300 Burnt Pine Lane, Miramar Beach, FL 32550</li>
-          <li><strong>Camp Creek Golf Club: </strong> 684 Fazio Dr, Panama City Beach, FL 32461-7369</li>
-         
-          <i>For more public beach access options, please check the link below.</i>
-          
+          <li>
+            <strong>Santa Rosa Golf & Beach Club:</strong>
+            <a href="https://www.google.com/maps/search/?api=1&query=Santa+Rosa+Golf+%26+Beach+Club" target="_blank" rel="noopener">
+              Tap for directions
+            </a>
+          </li>
+
+          <li>
+            <strong>Baytowne Golf Club:</strong>
+            <a href="https://www.google.com/maps/search/?api=1&query=1199+Troon+Dr,+Miramar+Beach,+FL+32550" target="_blank" rel="noopener">
+              1199 Troon Dr, Miramar Beach, FL 32550
+            </a>
+          </li>
+
+          <li>
+            <strong>Burnt Pine Golf Club:</strong>
+            <a href="https://www.google.com/maps/search/?api=1&query=3300+Burnt+Pine+Lane,+Miramar+Beach,+FL+32550" target="_blank" rel="noopener">
+              3300 Burnt Pine Lane, Miramar Beach, FL 32550
+            </a>
+          </li>
+
+          <li>
+            <strong>Camp Creek Golf Club:</strong>
+            <a href="https://www.google.com/maps/search/?api=1&query=684+Fazio+Dr,+Panama+City+Beach,+FL+32461" target="_blank" rel="noopener">
+              684 Fazio Dr, Panama City Beach, FL 32461
+            </a>
+          </li>
         </ul>
 
-       
-
-      
-
-        
-
         <div class="external-link">
-          🌐 For additional golf course points, visit:
+          🌐 For more golf course options, visit:
           <br>
-          <a href="https://30a.com/golf/" target="_blank">30A Golf Guide</a>
+          <a href="https://30a.com/golf/" target="_blank" rel="noopener noreferrer">30A Golf Guide</a>
           <br>
-            <a href="https://www.visitsouthwalton.com/news/press-release/golf-courses-south-walton/" target="_blank">Visit South Walton Golf Courses</a>
-            
-          
+          <a href="https://www.visitsouthwalton.com/news/press-release/golf-courses-south-walton/" target="_blank" rel="noopener noreferrer">
+            Visit South Walton Golf Courses
+          </a>
         </div>
       </section>
     </div>
@@ -229,15 +263,17 @@ ul li { margin: 6px 0; }
 <script>
   const bg = document.querySelector('.hero-bg');
   const heroText = document.querySelector('.hero-text');
+
   window.addEventListener('scroll', () => {
-    const y = window.scrollY;
+    const y = window.scrollY || 0;
     bg.style.transform = `translateY(${y * 0.2}px) scale(1.08)`;
     heroText.style.transform = `translateY(${y * 0.08}px)`;
-  });
+  }, { passive: true });
 
   const io = new IntersectionObserver((entries)=> {
     entries.forEach(e => e.target.classList.toggle('in-view', e.isIntersecting));
   }, { threshold: 0.15 });
+
   document.querySelectorAll('.card').forEach(el => io.observe(el));
 </script>
 </body>

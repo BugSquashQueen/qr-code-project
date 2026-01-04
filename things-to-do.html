@@ -4,6 +4,9 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Things To Do | Dream Destinations</title>
+<meta name="description" content="Things to do nearby for Dream Destinations 30A guests." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
@@ -11,277 +14,285 @@
   --mint: #cfeeee;
   --mint-strong: #2b7a78;
   --ring: #dfeaea;
-  --page-bg: #f7f2eb;
-  --glass: rgba(255,255,255,.66);
   --radius: 20px;
-  --shadow: 0 10px 26px rgba(0,0,0,.12);
+
+  /* match your “good” page */
+  --glass: rgba(255,255,255,0.55);
+  --glass-strong: rgba(255,255,255,0.42);
+  --shadow: 0 18px 40px rgba(0,0,0,0.16);
 }
 
-* { box-sizing: border-box; }
+*{ box-sizing:border-box; }
+html,body{ height:100%; }
 
-body {
-  margin: 0;
+body{
+  margin:0;
   font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
   background: url('images/beach-bg.jpg') no-repeat center center fixed;
   background-size: cover;
-  color: #1d2a2a;
-  display: flex;
-  justify-content: center;
-  padding: 20px;
-  min-height: 100vh;
-  overflow-y: auto;
-}
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: rgba(247, 242, 235, 0.75);
-  backdrop-filter: blur(3px);
-  z-index: -1;
-}
+  color:#1d2a2a;
+  display:flex;
+  justify-content:center;
+  padding:20px;
+  min-height:100vh;
 
-.phone {
-  max-width: 420px;
-  width: 100%;
-  border-radius: 30px;
-  overflow: visible;
-  box-shadow: 0 6px 24px rgba(0,0,0,.08);
-  background: rgba(255,255,255,0.85);
-  position: relative;
-  backdrop-filter: blur(6px);
-}
-
-/* Header */
-header {
-  text-align: center;
-  padding: 16px;
-}
-
-header .logo {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
+  /* IMPORTANT: page should NOT scroll */
   overflow: hidden;
-  margin: 0 auto 8px;
 }
 
-header .logo img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
+/* SAME overlay as your reference style */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background: rgba(255,255,255,0.35);
+  backdrop-filter: blur(2px);
+  z-index:-1;
 }
 
-header h1 {
-  font-size: 18px;
-  margin: 0;
-  color: var(--mint-strong);
+/* ✅ SCROLL FIX: phone is the scroll container */
+.phone{
+  max-width:420px;
+  width:100%;
+  border-radius:30px;
+  overflow:hidden;
+  box-shadow:0 6px 24px rgba(0,0,0,.06);
+  background:#fff;
+  position:relative;
+
+  height: calc(100vh - 40px);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
-header .sub {
-  font-size: 12px;
-  color: #7c8a8a;
-  margin-top: 4px;
+/* Header (same as your reference) */
+header{
+  text-align:center;
+  padding:16px;
+  background:#fff;
 }
+.logo{
+  width:90px;
+  height:100px;
+  border-radius:50%;
+  overflow:hidden;
+  margin:0 auto 8px;
+}
+.logo img{ width:100%; height:100%; object-fit:contain; }
+header h1{ font-size:18px; margin:0; color:var(--mint-strong); }
+header .sub{ font-size:12px; color:#7c8a8a; margin-top:4px; }
 
 /* Hero */
-.hero {
-  position: relative;
-  height: 38vh;
-  min-height: 180px;
-  max-height: 340px;
-  overflow: hidden;
+.hero{
+  position:relative;
+  height:38vh;
+  min-height:180px;
+  max-height:340px;
+  overflow:hidden;
 }
-
-.hero img.hero-bg {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.hero img.hero-bg{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
   transform: scale(1.08);
+  will-change: transform;
 }
-
-.bubble {
-  background: rgba(43, 122, 120, 0.10);
-      border: 2px dashed rgba(43, 122, 120, 0.22);
-      border-radius: 15px;
-      padding: 10px;
-      font-size: 16px;
-      line-height: 1.65;
-      margin: 10px 0 16px;
-}
-
-.hero .overlay {
-  position: absolute;
-  inset: 0;
+.hero .overlay{
+  position:absolute;
+  inset:0;
   background: linear-gradient(180deg, rgba(0,0,0,.35) 0%, rgba(0,0,0,.15) 45%, rgba(0,0,0,0) 100%);
 }
-
-.hero .hero-text {
-  position: absolute;
-  inset: 0;
-  display: grid;
-  place-items: end start;
-  padding: 16px;
-  color: #fff;
+.hero .hero-text{
+  position:absolute;
+  inset:0;
+  display:grid;
+  place-items:end start;
+  padding:16px;
+  color:#fff;
+  will-change: transform;
 }
-
-.hero .hero-text h2 {
-  margin: 0 0 6px 0;
+.hero .hero-text h2{
+  margin:0 0 6px 0;
   font-size: clamp(18px, 4.5vw, 24px);
-  font-weight: 700;
+  font-weight:700;
 }
 
 /* Content */
-.content {
-  margin-top: -60px;
-  padding: 0 16px 20px;
+.content{
+  margin-top:-15px;
+  padding:0 16px 20px;
 }
 
-.card {
+/* Glass card */
+.card{
   background: var(--glass);
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
-  border-radius: var(--radius);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,255,255,0.35);
   box-shadow: var(--shadow);
+  border-radius: var(--radius);
   padding: 18px 16px;
-  max-width: 860px;
   margin: 0 auto 16px;
+  position: relative;
+  overflow: hidden;
+
+  opacity:0;
+  transform: translateY(14px);
+  transition: .45s ease, background .25s ease, border-color .25s ease;
+}
+.card.in-view{ opacity:1; transform: translateY(0); }
+.card.scrolling{
+  background: var(--glass-strong);
+  border-color: rgba(255,255,255,0.55);
 }
 
-.section-title {
-  font-size: 16px;
-  margin: 0 0 10px;
-  text-align: center;
+.section-title{
+  font-size:16px;
+  margin:0 0 10px;
+  text-align:center;
   color: var(--mint-strong);
+  letter-spacing:.2px;
 }
 
-h3 {
+h3{
+  font-size:14px;
   margin: 14px 0 6px;
-  font-size: 14px;
-  font-weight: 700;
-  color: #2a3739;
+  color:#333;
+  text-transform:uppercase;
+  letter-spacing:.06em;
 }
 
-ul {
-  margin: 6px 0 0 20px;
-  padding: 0;
-  font-size: 14px;
+/* Lists */
+ul{
+  margin:0;
+  padding-left:18px;
+  font-size:14px;
+  line-height:1.55;
+}
+ul li{ margin:10px 0; }
+
+/* Links */
+.content a{
+  color:#1b6f63;
+  font-weight:700;
+  text-decoration:none;
+}
+.content a:hover{ text-decoration:underline; }
+
+/* Bubble disclaimer */
+.bubble{
+  background: rgba(43, 122, 120, 0.10);
+  border: 2px dashed rgba(43, 122, 120, 0.22);
+  border-radius: 15px;
+  padding: 12px;
+  line-height: 1.6;
+  margin: 10px 0 16px;
+}
+.bubble p{
+  margin:0;
+  font-size:13px;
+  color:#2a3739;
+}
+
+/* Directory section */
+.directory-section{
+  margin-top: 18px;
+}
+.directory-section h2{
+  text-align:center;
+  margin: 0 0 10px;
+  font-size: 15px;
+  color: var(--mint-strong);
+  letter-spacing:.2px;
+}
+
+/* Details accordion */
+details{
+  border: 1px solid rgba(255,255,255,0.35);
+  background: rgba(255,255,255,0.40);
+  border-radius: 14px;
+  padding: 10px 12px;
+  margin: 10px 0;
+}
+summary{
+  cursor:pointer;
+  font-weight:700;
+  list-style:none;
+  color:#2a3739;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+summary::-webkit-details-marker{ display:none; }
+summary::before{
+  content:"+";
+  display:inline-grid;
+  place-items:center;
+  width:22px;
+  height:22px;
+  border-radius:8px;
+  background: rgba(207,238,238,.6);
+  border: 1px solid rgba(43,122,120,.18);
+  color:#2b7a78;
+  font-weight:800;
+  flex: 0 0 22px;
+}
+details[open] summary::before{ content:"–"; }
+details p{
+  margin: 8px 0 0 32px;
+  font-size: 13px;
+  color: #455;
   line-height: 1.5;
 }
 
-ul li { margin: 6px 0; }
-
-/* Buttons */
-.footer {
-  display: flex;
-  gap: 10px;
-  justify-content: flex-start;
-  padding: 14px 22px 16px;
+/* Footer buttons */
+.footer{
+  display:flex;
+  gap:10px;
+  justify-content:flex-start;
+  padding:14px 22px 16px;
+  background:#fff;
 }
-
-.btn {
-  flex: 1;
-  padding: 10px;
-  border-radius: 8px;
-  border: none;
+.btn{
+  flex:1;
+  padding:10px;
+  border-radius:8px;
+  border:none;
   background: linear-gradient(135deg, #5a72a1, #3ba99c);
-  color: #fff;
-  font-weight: 600;
-  font-size: 14px;
-  cursor: pointer;
+  color:#fff;
+  font-weight:600;
+  font-size:14px;
+  cursor:pointer;
   transition: 0.3s ease;
-  box-shadow: 0 3px 8px rgba(43, 122, 120, 0.3);
 }
-
-.btn:hover {
+.btn:hover{
   background: linear-gradient(135deg, #a6c9ec, #2b7a78);
   transform: translateY(-2px);
 }
 
-
-
-.legal {
-  text-align: center;
-  font-size: 11px;
-  color: #7c8a8a;
-  padding-bottom: 12px;
+.legal{
+  text-align:center;
+  font-size:11px;
+  color:#7c8a8a;
+  padding: 0 0 12px;
+  background:#fff;
 }
 
-/* animations */
-.card {
-  opacity: 0;
-  transform: translateY(14px);
-  transition: .45s ease;
-}
-
-.card.in-view {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.directory-section {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 2rem 1rem 3rem;
-}
-
-.directory-section h2 {
-  text-align: center;
-  margin-bottom: 1.5rem;
-}
-
-.directory-section h3 {
-  margin-top: 2rem;
-  margin-bottom: 0.75rem;
-}
-
-details {
-  border-bottom: 1px solid #eee;
-  padding: 0.4rem 0;
-}
-
-summary {
-  cursor: pointer;
-  font-weight: 600;
-  list-style: none;
-}
-
-summary::-webkit-details-marker {
-  display: none;
-}
-
-summary::before {
-  content: "+";
-  display: inline-block;
-  margin-right: 0.5rem;
-  font-weight: 700;
-}
-
-details[open] summary::before {
-  content: "–";
-}
-
-details p {
-  margin: 0.25rem 0 0.35rem 1.25rem;
-  font-size: 0.95rem;
-  color: #555;
-}
-
-
-
-/* Responsive logo size */
-@media (max-width: 500px) {
-  header .logo {
-    width: 80px;
-    height: 80px;
+/* Mobile: let it be full screen */
+@media (max-width: 500px){
+  body{ padding:0; }
+  .phone{
+    height: 100vh;
+    border-radius: 0;
   }
 }
 </style>
 </head>
 
 <body>
-  <div class="phone">
+  <div class="phone" id="phoneScroll">
     <header>
       <div class="logo"><img src="dream png-01 (1).png" alt="Dream Logo"></div>
       <h1>Welcome to Dream!</h1>
@@ -289,17 +300,14 @@ details p {
     </header>
 
     <div class="hero">
-      <!-- Replace with your own hero image -->
-      <img class="hero-bg" src="Seaside Florida.jpg" alt="Things To Do">
+      <img class="hero-bg" src="Seaside Florida.jpg" alt="Things To Do" loading="eager" decoding="async">
       <div class="overlay"></div>
-      <div class="hero-text"><h2>Things To Do</h2></div>
+      
     </div>
 
     <div class="content">
       <section class="card">
         <h2 class="section-title">THINGS TO DO NEARBY</h2>
-
-       
 
         <h3>Scenic Rides & Nature Trails</h3>
         <ul>
@@ -310,151 +318,55 @@ details p {
 
         <h3>Family-Friendly Activities</h3>
         <ul>
-          <li>Visit local town centers for splash pads, playgrounds, and live music events (seasonal).</li>
-          <li>Please click <a href="https://seasidefl.com/events/">here</a> to see Seaside Event Calendar.</li>
+          <li>Visit local town centers for splash pads, playgrounds, and seasonal live music.</li>
+          <li>Seaside events calendar: <a href="https://seasidefl.com/events/" target="_blank" rel="noopener">Click here</a></li>
           <li>Mini-golf, arcades, and ice cream stops are all within a short drive.</li>
           <li>Look for outdoor movie nights and seasonal festivals in the area.</li>
         </ul>
 
         <h3>Transportation</h3>
         <ul>
-          <li>WaterColor Trolley Shuttle Service : Please click  <a href="https://www.mywatercolorcommunity.com/304/Trolley" target="_blank" >here</a> for more information.</li>
+          <li>WaterColor Trolley Shuttle Service: <a href="https://www.mywatercolorcommunity.com/304/Trolley" target="_blank" rel="noopener">Click here</a></li>
           <li>Please contact our office for multiple golf cart rentals.</li>
-          <li>If you are staying in WaterColor and you are planning to rent multiple golf carts, please contact with Electric Cart Company (850.622.2000). WaterColor properties accept second golf cart rentals only throught Electric Cart Company.</li>
+          <li>For WaterColor: second golf cart rentals are accepted only through Electric Cart Company (<b>850-622-2000</b>).</li>
         </ul>
 
-       
-      
-<section class="directory-section">
-  <h2>Cafés & Restaurants in Seaside</h2>
+        <div class="directory-section">
+          <h2>Cafés & Restaurants in Seaside</h2>
 
-  <div class="bubble">
-  <h6><i>Please note, all information regarding the cafes and restaurants are taken from their own sites and Seaside's official website. We have no responsibility for possible changes.</i></h6>
-  </div>
+          <div class="bubble">
+            <p><i>Please note: All information is taken from the businesses’ sites and Seaside’s official website. We are not responsible for changes.</i></p>
+          </div>
 
-  <!-- Coffee & Breakfast -->
-  <h3>Coffee & Breakfast Spots</h3>
+          <h3>Coffee & Breakfast Spots</h3>
+          <details><summary>Amavida Coffee & Tea</summary><p>Local coffee roastery serving espresso drinks, teas, and light bites.</p></details>
+          <details><summary>Black Bear Bread Co.</summary><p>Bakery and café offering artisan breads, pastries, and breakfast options.</p></details>
+          <details><summary>Wild Nectar</summary><p>Fresh-pressed juices, fruit & grain bowls, and seasonal healthy specialties.</p></details>
 
-  <details>
-    <summary>Amavida Coffee & Tea</summary>
-    <p>Local coffee roastery serving espresso drinks, teas, and light bites.</p>
-  </details>
+          <h3>Seafood & Southern Dining</h3>
+          <details><summary>Great Southern Cafe</summary><p>Southern-style dishes with fresh Gulf seafood in a casual setting.</p></details>
+          <details><summary>Bud & Alley’s</summary><p>Iconic Seaside restaurant with Gulf views, seafood, and classic beach fare.</p></details>
+          <details><summary>The Shrimp Shack</summary><p>Home of the Lobster Roll, peel-n’-eat shrimp, and freshly shucked Gulf oysters.</p></details>
+          <details><summary>The Daytrader Tiki Bar & Restaurant</summary><p>Polynesian Coast meets the Gulf of Mexico—cocktails, coastal cuisine, and an escape vibe.</p></details>
+          <details><summary>The C-Bar</summary><p>Colorful cocktails, bites, and a fun place for celebrations.</p></details>
+          <details><summary>87 Central Square</summary><p>Wine bar and restaurant with shareable plates and an upscale feel.</p></details>
 
-  <details>
-    <summary>Black Bear Bread Co.</summary>
-    <p>Bakery and café offering artisan breads, pastries, and breakfast options.</p>
-  </details>
+          <h3>Casual & Quick Bites</h3>
+          <details><summary>Wild Bill's Beach Dogs</summary><p>Gourmet American Wagyu all-beef hotdogs on Airstream Row.</p></details>
+          <details><summary>The Meltdown on 30A</summary><p>Gourmet grilled cheese sandwiches made with locally sourced ingredients.</p></details>
+          <details><summary>Taco Bar</summary><p>Casual tacos, margaritas, and Mexican-inspired options.</p></details>
+          <details><summary>Pickle’s Burger and Shakes</summary><p>Burgers, sandwiches, fried pickles, breakfast, and hand-spun milkshakes.</p></details>
+          <details><summary>Mr. Gyro Hero</summary><p>Gyros and Mediterranean-style quick bites.</p></details>
+          <details><summary>Barefoot BBQ</summary><p>Smoked barbecue plates and sandwiches in a casual setting.</p></details>
+          <details><summary>Crêpes du Soleil</summary><p>Sweet and savory crêpes for a quick meal or snack.</p></details>
+          <details><summary>'drome</summary><p>Dumplings, street eats, and sips in the heart of Seaside.</p></details>
 
-  <details>
-    <summary>Wild Nectar</summary>
-    <p>Wild Nectar serves fresh-pressed juices, vibrant fruit & grain bowls, and nourishing seasonal specialties. Great for a light, healthy start.</p>
-  </details>
-
-  <!-- Seafood & Southern Restaurants -->
-  <h3>Seafood & Southern Dining</h3>
-
-  <details>
-    <summary>Great Southern Cafe</summary>
-    <p>Southern-style dishes with fresh Gulf seafood in a casual setting.</p>
-  </details>
-
-  <details>
-    <summary>Bud & Alley’s</summary>
-    <p>Iconic Seaside restaurant with Gulf views, seafood, and classic beach fare.</p>
-  </details>
-
-  <details>
-    <summary>The Shrimp Shack</summary>
-    <p>est. 2009 – Home of the famous Lobster Roll and delicious peel-n’ eat shrimp as well as freshly shucked Gulf Oysters are waiting for you.</p>
-  </details>
-
-  <details>
-    <summary>The Daytrader Tiki Bar & Restaurant</summary>
-    <p>Located at the entrance of the iconic Coleman Beach Pavilion, The Daytrader invites guests to clock out of reality and clock into escape. Inspired by Chef Abuvala’s passion for the coastal cuisine and culture of the more than 1,000 islands that make up Polynesia in the Pacific Ocean, The Daytrader seeks to deliver a Polynesian Coast meets the Gulf of Mexico experience rooted in escapism, with a playful anti-corporate attitude to pair.</p>
-  </details>
-
-  <details>
-    <summary>The C-Bar</summary>
-    <p>The C-Bar is the perfect spot to enjoy colorful cocktails, delicious bites, and fun celebrations!</p>
-  </details>
-
-  <details>
-    <summary>87 Central Square</summary>
-    <p>Wine bar and restaurant with shareable plates and an upscale feel.</p>
-  </details>
-
-  <!-- Casual & Quick Bites -->
-  <h3>Casual & Quick Bites</h3>
-
-  <details>
-    <summary>Wild Bill's Beach Dogs</summary>
-    <p>Wild’s Bill’s Beach Dogs serves up gourmet American Wagyu all-beef hotdogs on Airstream Row in Seaside, Florida.</p>
-  </details>
-
-  <details>
-    <summary>The Meltdown on 30A</summary>
-    <p>Located on Airstream Row in Seaside, Florida, The Meltdown on 30A specializes in creating gourmet grilled cheese sandwiches that are homemade, using locally sourced ingredients.</p>
-  </details>
-
-  <details>
-    <summary>Taco Bar</summary>
-    <p>Casual tacos, margaritas, and Mexican-inspired options.</p>
-  </details>
-
-  <details>
-    <summary>Pickle’s Burger and Shakes</summary>
-    <p>est. 1993 – Pickle’s Burger & Shake is a fun, colorful, and delicious spot for the whole family. The All-American burger joint is also known for its signature sandwiches, locally sourced ice cream for hand-spun milkshakes, fried pickles & savory breakfast served up daily. </p>
-  </details>
-
-  <details>
-    <summary>Mr. Gyro Hero</summary>
-    <p>Gyros and Mediterranean-style quick bites.</p>
-  </details>
-
-  <details>
-    <summary>Barefoot BBQ</summary>
-    <p>Smoked barbecue plates and sandwiches with a beachy, casual feel.</p>
-  </details>
-
-  <details>
-    <summary>Crêpes du Soleil</summary>
-    <p>Sweet and savory crêpes, great for a quick meal or snack.</p>
-  </details>
-
-  <details>
-    <summary>'drome</summary>
-    <p>‘drome, offers dumplings, street eats, and sips in an exciting new dining experience in the heart of Seaside, Florida. </p>
-  </details>
-
-  <!-- Ice Cream, Sweets & Treats -->
-  <h3>Ice Cream, Sweets & Treats</h3>
-
-  <details>
-    <summary>It’s Heavenly Shortcakes and Ice Cream</summary>
-    <p>Ice cream, shortcakes, and sweet desserts.</p>
-  </details>
-
-  <details>
-    <summary>Dawson’s Yogurt & Fudgeworks</summary>
-    <p>Frozen yogurt, fudge, and sweet treats.</p>
-  </details>
-
-  <details>
-    <summary>Frostbites</summary>
-    <p>Shaved ice and frozen treats – perfect on hot days.</p>
-  </details>
-
-  <details>
-    <summary>B.F.F Frozens</summary>
-    <p>Frozen drinks and treats to cool off by the beach.</p>
-  </details>
-</section>
-
-
-
-      
-
-       
+          <h3>Ice Cream, Sweets & Treats</h3>
+          <details><summary>It’s Heavenly Shortcakes and Ice Cream</summary><p>Ice cream, shortcakes, and sweet desserts.</p></details>
+          <details><summary>Dawson’s Yogurt & Fudgeworks</summary><p>Frozen yogurt, fudge, and sweet treats.</p></details>
+          <details><summary>Frostbites</summary><p>Shaved ice and frozen treats—perfect on hot days.</p></details>
+          <details><summary>B.F.F Frozens</summary><p>Frozen drinks and treats to cool off near the beach.</p></details>
+        </div>
       </section>
     </div>
 
@@ -467,18 +379,33 @@ details p {
   </div>
 
 <script>
+  const phone = document.getElementById('phoneScroll');
   const bg = document.querySelector('.hero-bg');
   const heroText = document.querySelector('.hero-text');
-  window.addEventListener('scroll', () => {
-    const y = window.scrollY;
+
+  // ✅ Parallax based on PHONE scroll, not window
+  phone.addEventListener('scroll', () => {
+    const y = phone.scrollTop || 0;
     bg.style.transform = `translateY(${y * 0.2}px) scale(1.08)`;
     heroText.style.transform = `translateY(${y * 0.08}px)`;
-  });
+  }, { passive: true });
 
+  // ✅ Fade-in when visible inside phone
   const io = new IntersectionObserver((entries)=> {
     entries.forEach(e => e.target.classList.toggle('in-view', e.isIntersecting));
-  }, { threshold: 0.15 });
+  }, { threshold: 0.15, root: phone });
+
   document.querySelectorAll('.card').forEach(el => io.observe(el));
+
+  // ✅ Glass reacts while scrolling inside phone
+  let scrollTimer;
+  phone.addEventListener('scroll', () => {
+    document.querySelectorAll('.card').forEach(card => card.classList.add('scrolling'));
+    clearTimeout(scrollTimer);
+    scrollTimer = setTimeout(() => {
+      document.querySelectorAll('.card').forEach(card => card.classList.remove('scrolling'));
+    }, 120);
+  }, { passive: true });
 </script>
 </body>
 </html>

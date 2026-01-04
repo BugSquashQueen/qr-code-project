@@ -4,6 +4,9 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Beach Access | Dream Destinations</title>
+<meta name="description" content="Beach access information for your stay with Dream Destinations 30A." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
@@ -12,9 +15,7 @@
   --mint-strong: #2b7a78;
   --ring: #dfeaea;
   --page-bg: #f7f2eb;
-  --glass: rgba(255,255,255,.66);
   --radius: 20px;
-  --shadow: 0 10px 26px rgba(0,0,0,.12);
 }
 
 * { box-sizing: border-box; }
@@ -31,12 +32,13 @@ body {
   min-height: 100vh;
   overflow-y: auto;
 }
+
 body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background: rgba(247, 242, 235, 0.75);
-  backdrop-filter: blur(3px);
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(2px);
   z-index: -1;
 }
 
@@ -44,21 +46,27 @@ body::before {
   max-width: 420px;
   width: 100%;
   border-radius: 30px;
-  overflow: visible;
-  box-shadow: 0 6px 24px rgba(0,0,0,.08);
-  background: rgba(255,255,255,0.85);
+  overflow: hidden;
+  box-shadow: 0 6px 24px rgba(0,0,0,.06);
+  background: #fff;
   position: relative;
-  backdrop-filter: blur(6px);
 }
 
-/* Header */
-header { text-align: center; padding: 16px; }
-.logo { width: 60px; height: 60px; border-radius: 50%; overflow: hidden; margin: 0 auto 8px; }
+header {
+  text-align: center;
+  padding: 16px;
+}
+.logo {
+  width: 90px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 8px;
+}
 .logo img { width: 100%; height: 100%; object-fit: contain; }
 header h1 { font-size: 18px; margin: 0; color: var(--mint-strong); }
 header .sub { font-size: 12px; color: #7c8a8a; margin-top: 4px; }
 
-/* Hero */
 .hero {
   position: relative;
   height: 38vh;
@@ -67,20 +75,27 @@ header .sub { font-size: 12px; color: #7c8a8a; margin-top: 4px; }
   overflow: hidden;
 }
 .hero img.hero-bg {
-  position: absolute; inset: 0;
-  width: 100%; height: 100%;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   transform: scale(1.08);
+  will-change: transform;
 }
 .hero .overlay {
-  position: absolute; inset: 0;
+  position: absolute;
+  inset: 0;
   background: linear-gradient(180deg, rgba(0,0,0,.35) 0%, rgba(0,0,0,.15) 45%, rgba(0,0,0,0) 100%);
 }
 .hero .hero-text {
-  position: absolute; inset: 0;
-  display: grid; place-items: end start;
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: end start;
   padding: 16px;
   color: #fff;
+  will-change: transform;
 }
 .hero .hero-text h2 {
   margin: 0 0 6px 0;
@@ -88,55 +103,81 @@ header .sub { font-size: 12px; color: #7c8a8a; margin-top: 4px; }
   font-weight: 700;
 }
 
-/* Content */
 .content {
-  margin-top: -60px;
+  margin-top: -15px;
   padding: 0 16px 20px;
 }
-.card {
-  background: var(--glass);
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
+
+.card{
+  background: rgba(255,255,255,0.55);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,255,255,0.35);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.16);
   border-radius: var(--radius);
-  box-shadow: var(--shadow);
   padding: 18px 16px;
-  max-width: 860px;
   margin: 0 auto 16px;
+  position: relative;
+  overflow: hidden;
+
+  opacity: 0;
+  transform: translateY(14px);
+  transition: .45s ease, background .25s ease, border-color .25s ease;
 }
+.card.in-view{ opacity: 1; transform: translateY(0); }
+
+.card.scrolling{
+  background: rgba(255,255,255,0.42);
+  border-color: rgba(255,255,255,0.55);
+}
+
 .section-title {
   font-size: 16px;
   margin: 0 0 10px;
   text-align: center;
   color: var(--mint-strong);
+  letter-spacing: .2px;
 }
+
 h3 {
-  margin: 14px 0 6px;
   font-size: 14px;
+  margin: 10px 0 6px;
+  color: #333;
+  text-transform: uppercase;
+}
+
+ul { margin: 0; padding-left: 18px; font-size: 14px; line-height: 1.5; }
+ul li { margin: 10px 0; }
+
+.note {
+  background: rgba(207,238,238,.55);
+  border: 1px solid rgba(43,122,120,.18);
+  padding: 10px 12px;
+  border-radius: 14px;
+  margin: 10px 0;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.linkbox{
+  background: rgba(207,238,238,.45);
+  border: 1px solid rgba(43,122,120,.18);
+  padding: 12px;
+  border-radius: 14px;
+  margin-top: 12px;
+  font-size: 13px;
+  line-height: 1.45;
+}
+.linkbox a{
+  color: #1b6f63;
   font-weight: 700;
-  color: #2a3739;
+  text-decoration: none;
 }
-ul { margin: 6px 0 0 20px; padding: 0; font-size: 14px; line-height: 1.5; }
-ul li { margin: 6px 0; }
+.linkbox a:hover{ text-decoration: underline; }
 
-/* External link box */
-.external-link{
-  background:#f0faf9;
-  border-left:4px solid #c4e3dc;
-  padding:10px;
-  border-radius:8px;
-  font-size:13px;
-  margin-top:12px;
-}
-.external-link a{
-  color:#1b6f63;
-  font-weight:600;
-  text-decoration:none;
-}
-.external-link a:hover{text-decoration:underline;}
-
-/* Buttons */
 .footer {
-  display: flex; gap: 10px;
+  display: flex;
+  gap: 10px;
   justify-content: flex-start;
   padding: 14px 22px 16px;
 }
@@ -151,7 +192,6 @@ ul li { margin: 6px 0; }
   font-size: 14px;
   cursor: pointer;
   transition: 0.3s ease;
-  box-shadow: 0 3px 8px rgba(43, 122, 120, 0.3);
 }
 .btn:hover {
   background: linear-gradient(135deg, #a6c9ec, #2b7a78);
@@ -165,24 +205,27 @@ ul li { margin: 6px 0; }
   padding-bottom: 12px;
 }
 
-/* animations */
-.card { opacity: 0; transform: translateY(14px); transition: .45s ease; }
-.card.in-view { opacity: 1; transform: translateY(0); }
+@media (prefers-reduced-motion: reduce) {
+  .card { transition: none; transform: none; opacity: 1; }
+  .hero img.hero-bg, .hero .hero-text { will-change: auto; }
+}
 </style>
 </head>
 
 <body>
   <div class="phone">
     <header>
-      <div class="logo"><img src="dream png-01 (1).png" alt="Dream Logo"></div>
-      <h1>Beach Access Information</h1>
+      <div class="logo">
+        <img src="dream png-01 (1).png" alt="Dream Logo">
+      </div>
+      <h1>Welcome to Dream!</h1>
       <div class="sub">Luxury is a Lifestyle, Memories are a Legacy</div>
     </header>
 
     <div class="hero">
-      <img class="hero-bg" src="p1e7iohrfs1g1tvf910von8i1l6.jpg" alt="Beach Access">
+      <img class="hero-bg" src="p1e7iohrfs1g1tvf910von8i1l6.jpg" alt="Beach Access" width="1200" height="800" loading="eager" decoding="async">
       <div class="overlay"></div>
-      <div class="hero-text"><h2>Beach Access</h2></div>
+      
     </div>
 
     <div class="content">
@@ -191,49 +234,45 @@ ul li { margin: 6px 0; }
 
         <h3>Public Beach Access</h3>
         <ul>
-          <li><strong>San Juan Access: </strong>3458 E Highway 30A</li>
-          <li><strong>Santa Clara Regional Beach Access: </strong>3468 W County Highway</li>
-          <li><strong>Ed Walline Public Beach Access: </strong>4447 W County Highway 30A</li>
-          <li><strong>Blue Mountain Regional Beach Access: </strong>2365 S Scenic Hwy 83</li>
-          <li>For more public beach access options, please check Walton County Interactive Map link.</li>
-          
+          <li><b>San Juan Access:</b> 3458 E Highway 30A</li>
+          <li><b>Santa Clara Regional Beach Access:</b> 3468 W County Highway 30A</li>
+          <li><b>Ed Walline Public Beach Access:</b> 4447 W County Highway 30A</li>
+          <li><b>Blue Mountain Regional Beach Access:</b> 2365 S Scenic Hwy 83</li>
         </ul>
 
-       
+        <div class="note">
+          For more public beach access options, check the Walton County / Visit South Walton access map below.
+        </div>
 
         <h3>For WaterColor Guests</h3>
         <ul>
           <li>Available for registered WaterColor guests only.</li>
           <li>Wristbands must be visible upon entry and during your visit.</li>
-          <li><strong>Camp WaterColor:</strong> 205 Spartina Circle</li>
+          <li><b>Camp WaterColor:</b> 205 Spartina Circle</li>
         </ul>
 
-        <h3>What is a regional beach access?</h3>
+        <h3>What is a Regional Beach Access?</h3>
         <ul>
-        <li>Regional Beach Access (RBA) offers public beach access via boardwalk with restrooms, parking, showers, bike racks as well as ADA access in select locations.</li></ul>
+          <li>Regional Beach Access (RBA) provides public beach access via boardwalk and may include restrooms, parking, showers, bike racks, and ADA access at select locations.</li>
+        </ul>
+
+        <h3>Questions?</h3>
         <ul>
-
-          <h3>Who Do I Contact With Questions?</h3>
-          <ul>
-            <ul>
-              <li>For questions about general beach access, contact the Walton County Tourism Department at <i> (800) 822-6877 or (850) 267-1216. </i> </li>
-            </ul>
-          </ul>
-
+          <li>Walton County Tourism Department: <i>(800) 822-6877</i> or <i>(850) 267-1216</i></li>
         </ul>
 
         <h3>Important Notes</h3>
         <ul>
           <li>Please follow all posted lifeguard and safety signs.</li>
           <li>Glass containers and pets are not permitted on the beach.</li>
-          <li>If you are staying in WaterColor, please check link below to see private beach </li>
+          <li>WaterColor guests: review private beach access guidance via the link below.</li>
         </ul>
 
-        <div class="external-link">
-          🌐 For additional public beach and bay access points, visit  
-          <a href="https://www.visitsouthwalton.com/beach-bay-access-locations/" target="_blank">
-            Visit South Walton Beach & Bay Access Locations
-          </a>.
+        <div class="linkbox">
+          For additional public beach and bay access points:
+          <a href="https://www.visitsouthwalton.com/beach-bay-access-locations/" target="_blank" rel="noopener noreferrer">
+            Visit South Walton – Beach & Bay Access Locations
+          </a>
         </div>
       </section>
     </div>
@@ -247,18 +286,33 @@ ul li { margin: 6px 0; }
   </div>
 
 <script>
+  // Parallax
   const bg = document.querySelector('.hero-bg');
   const heroText = document.querySelector('.hero-text');
+
   window.addEventListener('scroll', () => {
-    const y = window.scrollY;
+    const y = window.scrollY || 0;
     bg.style.transform = `translateY(${y * 0.2}px) scale(1.08)`;
     heroText.style.transform = `translateY(${y * 0.08}px)`;
-  });
+  }, { passive: true });
 
+  // Fade in cards when visible
   const io = new IntersectionObserver((entries)=> {
     entries.forEach(e => e.target.classList.toggle('in-view', e.isIntersecting));
   }, { threshold: 0.15 });
+
   document.querySelectorAll('.card').forEach(el => io.observe(el));
+
+  // Glass reacts while scrolling
+  let scrollTimer;
+  window.addEventListener('scroll', () => {
+    document.querySelectorAll('.card').forEach(card => card.classList.add('scrolling'));
+
+    clearTimeout(scrollTimer);
+    scrollTimer = setTimeout(() => {
+      document.querySelectorAll('.card').forEach(card => card.classList.remove('scrolling'));
+    }, 120);
+  }, { passive: true });
 </script>
 </body>
 </html>
