@@ -33,7 +33,6 @@
       overflow-y: auto;
     }
 
-    /* Keep this light so the card blur is visible */
     body::before {
       content: "";
       position: fixed;
@@ -109,7 +108,6 @@
       padding: 0 16px 20px;
     }
 
-    /* GLASS CARD */
     .card{
       background: rgba(255,255,255,0.55);
       -webkit-backdrop-filter: blur(14px);
@@ -128,7 +126,6 @@
     }
     .card.in-view{ opacity: 1; transform: translateY(0); }
 
-    /* Optional: make glass react while scrolling */
     .card.scrolling{
       background: rgba(255,255,255,0.42);
       border-color: rgba(255,255,255,0.55);
@@ -163,7 +160,7 @@
       padding: 10px;
       border-radius: 8px;
       border: none;
-      background: linear-gradient(135deg, #246890, #3ba99c);
+      background: linear-gradient(135deg, #5a72a1, #3ba99c);
       color: #fff;
       font-weight: 600;
       font-size: 14px;
@@ -181,6 +178,16 @@
       color: #7c8a8a;
       padding-bottom: 12px;
     }
+
+    /* Optional: small callout style inside lists */
+    .note {
+      background: rgba(207,238,238,.55);
+      border: 1px solid rgba(43,122,120,.18);
+      padding: 10px 12px;
+      border-radius: 14px;
+      margin: 10px 0;
+      font-size: 13px;
+    }
   </style>
 </head>
 
@@ -195,30 +202,71 @@
     </header>
 
     <div class="hero">
-      <img class="hero-bg" src="picture1.jpg" alt="Dream Destinations">
+      <img class="hero-bg" src="picture1.jpg" alt="Dream Destinations" width="1200" height="800" loading="eager" decoding="async">
       <div class="overlay"></div>
-      <div class="hero-text">
-        <div>
-          <h2>Check-In / Check-Out</h2>
-        </div>
-      </div>
+      <div class="hero-text"></div>
     </div>
 
     <div class="content">
       <section class="card">
         <h2 class="section-title">CHECK IN/OUT</h2>
 
-        <h3>Check-In Details</h3>
+        <h3>Check-In</h3>
         <ul>
-          <li>Standard check-in time is 4:00 pm.</li>
-          <li></li>
-          <li>Golf cart key and pool card are located on the kitchen counter top (For NatureWalk properties).</li>
-          <li>If you are renting our WaterColor properties, please check the yellow envelope on the kitchen counter top for more information.</li>
+          <li><b>Check-in:</b> 4:00 PM. <b>Check-out:</b> 10:00 AM.</li>
+          <li>Early arrival / late departure requests must be submitted <b>before</b> arrival/departure.</li>
+        
+      
+          <li>For NatureWalk properties: golf cart key and pool card are on the kitchen countertop.</li>
+          <li>For WaterColor properties: Please check the yellow envelope on the kitchen countertop for wristabnds and parking pass.</li>
+        </ul>
+
+        <div class="note">
+          <b>Packages:</b> Do not send deliveries to the property. If you urgently need a package, contact our office first for an alternate address. (For only Urgent Deliveries)
+        </div>
+      </section>
+
+      <section class="card">
+        <h3>House Policies</h3>
+        <ul>
+          <li><b>Occupancy is strictly enforced.</b> Extra guests require prior approval.</li>
+          <li>Violations may result in <b>immediate eviction</b> and <b>forfeiture</b> of all monies paid.</li>
         </ul>
       </section>
 
       <section class="card">
-        <h3>Check-Out Details</h3>
+        <h3>Golf Cart</h3>
+        <ul>
+          <li>Allow <b>15 seconds</b> after turning the key (cart in <b>Neutral</b>) before use.</li>
+          <li><b>Parking:</b> driveway or garage only. <b>No street parking</b> (tow at guest expense).</li>
+          <li><b>Charge rule:</b> Do not operate below <b>20%</b>. Charge is monitored.</li>
+          <li>If used under 20% and towing is needed: <b>$150 fee</b> charged to the card on file.</li>
+          <li>Keys are on the kitchen countertop; leave them there at checkout. Missing keys: <b>$100 fee</b>.</li>
+          <li>Driver must be <b>21+</b> with a valid driver’s license.</li>
+          <li>Not permitted on <b>nature trails, boardwalks, or sidewalks</b>. No landscaping/grassy parking.</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h3>Parking & Community Rules</h3>
+        <ul>
+          <li>One driveway spot is available. Garage has an extra space, but one spot is reserved for the golf cart (if applicable).</li>
+          <li>NatureWalk CDD rules: no parking on landscaped areas, streets, alleys, or district roadways (tow-away zones).</li>
+          <li>Vehicles blocking emergency access may be towed.</li>
+          <li>Tickets from unauthorized parking are the guest’s responsibility (charged to card on file).</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h3>Trash</h3>
+        <ul>
+          <li>Trash pickup: <b>Mondays & Thursdays</b>.</li>
+          <li>Follow HOA rules and keep <b>bear straps fastened</b> to secure the trash can.</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h3>Departure Guidelines:</h3>
         <ul>
           <li>The standard checkout time is 10:00 am.</li>
           <li>Late checkouts will result in a $200.00 fee. This fee covers housekeeping and helps us maintain our scheduling.</li>
@@ -263,7 +311,7 @@
 
     document.querySelectorAll('.card').forEach(el => io.observe(el));
 
-    // Glass reacts while scrolling (optional but included)
+    // Glass reacts while scrolling
     let scrollTimer;
     window.addEventListener('scroll', () => {
       document.querySelectorAll('.card').forEach(card => card.classList.add('scrolling'));
