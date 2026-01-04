@@ -19,6 +19,7 @@
   --glass: rgba(255,255,255,0.55);
   --glass-strong: rgba(255,255,255,0.42);
   --shadow: 0 18px 40px rgba(0,0,0,0.16);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
 }
 
 *{ box-sizing:border-box; }
@@ -34,7 +35,7 @@ body{
   justify-content:center;
   padding:20px;
   min-height:100vh;
-  overflow:hidden; /* page doesn't scroll */
+  overflow:hidden; /* ✅ body never scrolls */
 }
 
 body::before{
@@ -46,7 +47,7 @@ body::before{
   z-index:-1;
 }
 
-/* phone scroll container */
+/* ✅ phone is a flex column: header/hero + scroller + footer */
 .phone{
   max-width:420px;
   width:100%;
@@ -57,6 +58,13 @@ body::before{
   position:relative;
 
   height: calc(100vh - 40px);
+  display:flex;
+  flex-direction:column;
+}
+
+/* ✅ ONLY this area scrolls */
+.scroller{
+  flex: 1 1 auto;
   overflow-y:auto;
   -webkit-overflow-scrolling: touch;
 }
@@ -119,9 +127,6 @@ header .sub{ font-size:12px; color:#7c8a8a; margin-top:4px; }
 .content{
   margin-top:-15px;
   padding:0 16px 20px;
-
-  /* ✅ reserve space so content never hides behind sticky footer */
-  padding-bottom: 120px;
 }
 
 .card{
@@ -133,7 +138,6 @@ header .sub{ font-size:12px; color:#7c8a8a; margin-top:4px; }
   border-radius: var(--radius);
   padding: 18px 16px;
   margin: 0 auto 16px;
-  position: relative;
   overflow: hidden;
 
   opacity:0;
@@ -186,20 +190,15 @@ ul li{ margin:10px 0; }
   font-size: 13px;
 }
 
-/* ✅ Sticky footer inside phone (no overlap) */
+/* ✅ Footer is NOT sticky; it is a fixed part of the phone layout */
 .footer{
-  position: sticky;
-  bottom: 0;
-  z-index: 5;
-
   display:flex;
   gap:10px;
-  justify-content:flex-start;
-  padding:14px 22px 16px;
-  background: rgba(255,255,255,0.92);
-  backdrop-filter: blur(8px);
-  border-top: 1px solid rgba(223,234,234,0.8);
+  padding:14px 22px calc(16px + var(--safe-bottom));
+  background:#fff;
+  border-top:1px solid rgba(223,234,234,0.9);
 }
+
 .btn{
   flex:1;
   padding:10px;
@@ -218,6 +217,7 @@ ul li{ margin:10px 0; }
 }
 
 .legal{
+  flex: 0 0 auto;
   text-align:center;
   font-size:11px;
   color:#7c8a8a;
@@ -237,42 +237,45 @@ ul li{ margin:10px 0; }
 </head>
 
 <body>
-  <div class="phone" id="phoneScroll">
-    <header>
-      <div class="logo"><img src="dream png-01 (1).png" alt="Dream Logo"></div>
-      <h1>Dream Destinations Office</h1>
-      <div class="sub">Luxury is a Lifestyle, Memories are a Legacy</div>
-    </header>
+  <div class="phone" id="phone">
+    <!-- ✅ Scrollable area -->
+    <div class="scroller" id="scroller">
+      <header>
+        <div class="logo"><img src="dream png-01 (1).png" alt="Dream Logo"></div>
+        <h1>Dream Destinations Office</h1>
+        <div class="sub">Luxury is a Lifestyle, Memories are a Legacy</div>
+      </header>
 
-    <div class="hero">
-      <img class="hero-bg" src="ChatGPT Image Dec 23, 2025, 07_55_43 AM.png" alt="Office Photo" loading="eager" decoding="async">
-      <div class="overlay"></div>
-      <div class="hero-text"><h2>Office Hours</h2></div>
+      <div class="hero">
+        <img class="hero-bg" src="ChatGPT Image Dec 23, 2025, 07_55_43 AM.png" alt="Office Photo" loading="eager" decoding="async">
+        <div class="overlay"></div>
+        <div class="hero-text"><h2>Office Hours</h2></div>
+      </div>
+
+      <div class="content">
+        <section class="card">
+          <h2 class="section-title">OFFICE HOURS</h2>
+
+          <h3>Regular Hours</h3>
+          <ul>
+            <li>We are open every day.</li>
+            <li>Monday – Sunday: <b>9:00 AM – 5:00 PM</b></li>
+          </ul>
+
+          <h3>Contact</h3>
+          <ul>
+            <li>📞 <a href="tel:+18506665662">(850) 666-5662</a></li>
+            <li>📧 <a href="mailto:reservations@dreamdestinations30a.com">reservations@dreamdestinations30a.com</a></li>
+          </ul>
+
+          <div class="info-box">
+            <b>After-hours urgent help:</b> Please text our 24-hour line at <b>(850) 666-5662</b>.
+          </div>
+        </section>
+      </div>
     </div>
 
-    <div class="content">
-      <section class="card">
-        <h2 class="section-title">OFFICE HOURS</h2>
-
-        <h3>Regular Hours</h3>
-        <ul>
-          <li>We are open every day.</li>
-          <li>Monday – Sunday: <b>9:00 AM – 5:00 PM</b></li>
-        </ul>
-
-        <h3>Contact</h3>
-        <ul>
-          <li>📞 <a href="tel:+18506665662">(850) 666-5662</a></li>
-          <li>📧 <a href="mailto:reservations@dreamdestinations30a.com">reservations@dreamdestinations30a.com</a></li>
-        </ul>
-
-        <div class="info-box">
-          <b>After-hours urgent help:</b> Please text our 24-hour line at <b>(850) 666-5662</b>.
-        </div>
-      </section>
-    </div>
-
-    <!-- ✅ Buttons are here, inside .phone -->
+    <!-- ✅ Footer never overlays content -->
     <div class="footer">
       <button class="btn" onclick="location.href='index.html'">HOME</button>
       <button class="btn" onclick="location.href='things-to-do.html'">NEXT</button>
@@ -282,27 +285,27 @@ ul li{ margin:10px 0; }
   </div>
 
 <script>
-  const phone = document.getElementById('phoneScroll');
+  const scroller = document.getElementById('scroller');
   const bg = document.querySelector('.hero-bg');
   const heroText = document.querySelector('.hero-text');
 
-  // Parallax based on PHONE scroll
-  phone.addEventListener('scroll', () => {
-    const y = phone.scrollTop || 0;
+  // Parallax based on SCROLLER scroll
+  scroller.addEventListener('scroll', () => {
+    const y = scroller.scrollTop || 0;
     bg.style.transform = `translateY(${y * 0.2}px) scale(1.08)`;
     heroText.style.transform = `translateY(${y * 0.08}px)`;
   }, { passive: true });
 
-  // Fade-in cards inside phone
+  // Fade-in cards inside scroller
   const io = new IntersectionObserver((entries)=> {
     entries.forEach(e => e.target.classList.toggle('in-view', e.isIntersecting));
-  }, { threshold: 0.15, root: phone });
+  }, { threshold: 0.15, root: scroller });
 
   document.querySelectorAll('.card').forEach(el => io.observe(el));
 
   // Glass reacts while scrolling
   let scrollTimer;
-  phone.addEventListener('scroll', () => {
+  scroller.addEventListener('scroll', () => {
     document.querySelectorAll('.card').forEach(card => card.classList.add('scrolling'));
     clearTimeout(scrollTimer);
     scrollTimer = setTimeout(() => {
