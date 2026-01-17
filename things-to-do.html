@@ -288,6 +288,28 @@ details p{
     border-radius: 0;
   }
 }
+
+/* iPhone notch / Dynamic Island safe area */
+.phone{
+  padding-top: env(safe-area-inset-top);
+}
+
+/* keep header spacing consistent */
+header{
+  padding-top: calc(16px + env(safe-area-inset-top));
+}
+
+/* optional: avoid double padding if you add safe area to .phone */
+@supports (padding: max(0px)) {
+  .phone { padding-top: 0; }
+  header { padding-top: max(16px, calc(16px + env(safe-area-inset-top))); }
+}
+
+
+
+
+
+
 </style>
 </head>
 
