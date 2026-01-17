@@ -289,20 +289,34 @@ details p{
   }
 }
 
-/* iPhone notch / Dynamic Island safe area */
 .phone{
+  max-width:420px;
+  width:100%;
+  border-radius:30px;
+  overflow:hidden;
+  box-shadow:0 6px 24px rgba(0,0,0,.06);
+  background:#fff;
+  position:relative;
+
+  height: calc(100vh - 40px);
+
+  /* layout */
+  display:flex;
+  flex-direction:column;
+
+  /* scroll only content, not footer */
+  overflow: hidden;
+}
+
+/* scroll container (add this class to your main content wrapper) */
+.scroll{
+  flex:1;
+  overflow-y:auto;
+  -webkit-overflow-scrolling:touch;
+
+  /* safe areas */
   padding-top: env(safe-area-inset-top);
-}
-
-/* keep header spacing consistent */
-header{
-  padding-top: calc(16px + env(safe-area-inset-top));
-}
-
-/* optional: avoid double padding if you add safe area to .phone */
-@supports (padding: max(0px)) {
-  .phone { padding-top: 0; }
-  header { padding-top: max(16px, calc(16px + env(safe-area-inset-top))); }
+  padding-bottom: env(safe-area-inset-bottom);
 }
 
 
